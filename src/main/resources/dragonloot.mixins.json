@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.dragonloot.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EnderDragonEntityMixin",
+    "PlayerEntityMixin",
+    "LivingEntityMixin",
+    "AnvilScreenHandlerMixin"
+  ],
+  "client": [
+    "HeadFeatureRendererMixin",
+    "ElytraFeatureRendererMixin",
+    "ClientPlayerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
