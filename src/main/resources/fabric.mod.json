@@ -3,7 +3,7 @@
   "id": "dragonloot",
   "version": "${version}",
   "name": "DragonLoot",
-  "description": "This mod expands upon the Ender Dragon by adding loot drops and things to do with said loot.",
+  "description": "Adds loot for the enderdragon",
   "authors": [
     "Pois1x",
     "Globox_Z"
