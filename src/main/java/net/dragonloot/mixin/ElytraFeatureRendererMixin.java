@@ -5,6 +5,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
 
+import net.dragonloot.entity.model.DragonElytraEntityModel;
 import net.dragonloot.init.ItemInit;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
@@ -15,7 +16,7 @@ import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.render.entity.feature.ElytraFeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.ElytraEntityModel;
+//import net.minecraft.client.render.entity.model.ElytraEntityModel;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -29,7 +30,8 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
     extends FeatureRenderer<T, M> {
   private static final Identifier DRAGON_ELYTRA_TEXTURE = new Identifier(
       "dragonloot:textures/entity/dragon_elytra.png");
-  private final ElytraEntityModel<T> elytraModel = new ElytraEntityModel<>();
+  // private final ElytraEntityModel<T> elytraModel = new ElytraEntityModel<>();
+  private final DragonElytraEntityModel<T> dragonElytraModel = new DragonElytraEntityModel<>();
 
   public ElytraFeatureRendererMixin(FeatureRendererContext<T, M> context) {
     super(context);
@@ -58,12 +60,12 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
       }
 
       matrixStack.push();
-      matrixStack.translate(0.0D, 0.0D, 0.125D);
-      this.getContextModel().copyStateTo(this.elytraModel);
-      this.elytraModel.setAngles(livingEntity, f, g, j, k, l);
+      matrixStack.translate(0.0D, 0.0D, 0.25D);
+      this.getContextModel().copyStateTo(this.dragonElytraModel);
+      this.dragonElytraModel.setAngles(livingEntity, f, g, j, k, l);
       VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider,
           RenderLayer.getArmorCutoutNoCull(identifier4), false, itemStack.hasGlint());
-      this.elytraModel.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
+      this.dragonElytraModel.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
       matrixStack.pop();
       info.cancel();
     }
