@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "id": "dragonloot",
   "version": "${version}",
-  "name": "Dragon Loot",
-  "description": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "name": "DragonLoot",
+  "description": "This mod expands upon the Ender Dragon by adding loot drops and things to do with said loot.",
   "authors": [
     "Pois1x",
     "Globox_Z"
   ],
   "contact": {
-    "homepage": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/dragonloot",
     "sources": "https://github.com/GitPois1x/DragonLoot",
     "issues": "https://github.com/GitPois1x/DragonLoot/issues"
   },
