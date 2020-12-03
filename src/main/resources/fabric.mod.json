@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "id": "dragonloot",
   "version": "${version}",
-  "name": "Dragon Loot",
-  "description": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+  "name": "DragonLoot",
+  "description": "Adds loot for the enderdragon",
   "authors": [
     "Pois1x",
     "Globox_Z"
   ],
   "contact": {
-    "homepage": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/dragonloot",
     "sources": "https://github.com/GitPois1x/DragonLoot",
     "issues": "https://github.com/GitPois1x/DragonLoot/issues"
   },
