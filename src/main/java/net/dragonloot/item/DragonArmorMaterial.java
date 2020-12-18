@@ -10,8 +10,8 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class DragonArmorMaterial implements ArmorMaterial {
-    private static final int[] BASE_DURABILITY = new int[] { 14, 15, 16, 12 };
-    private static final int[] PROTECTION_AMOUNTS = new int[] { 3, 6, 8, 3 };
+    private static final int[] BASE_DURABILITY = new int[] { 28, 32, 35, 26 };
+    private static final int[] PROTECTION_AMOUNTS = new int[] { 7, 9, 10, 7 };
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot) {
