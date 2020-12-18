@@ -9,6 +9,7 @@ public class DragonLootMain implements ModInitializer {
     public void onInitialize() {
         BlockInit.init();
         ItemInit.init();
+        TagInit.init();
     }
 
 }

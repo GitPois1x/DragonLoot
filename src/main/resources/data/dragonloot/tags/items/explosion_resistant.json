@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "dragonloot:dragon_scale",
+        "dragonloot:dragon_helmet",
+        "dragonloot:dragon_chestplate",
+        "dragonloot:dragon_leggings",
+        "dragonloot:dragon_boots"
+    ]
+}
