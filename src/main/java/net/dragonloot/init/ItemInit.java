@@ -11,17 +11,17 @@ import net.minecraft.util.registry.Registry;
 public class ItemInit {
         // Items
         public static final DragonScaleItem DRAGON_SCALE_ITEM = new DragonScaleItem(
-                        new Item.Settings().group(ItemGroup.MISC));
+                        new Item.Settings().group(ItemGroup.MISC).fireproof());
         // Armor
         public static final ArmorMaterial DRAGON_ARMOR_MATERIAL = new DragonArmorMaterial();
         public static final Item DRAGON_HELMET = new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.HEAD,
-                        new Item.Settings().group(ItemGroup.COMBAT));
+                        new Item.Settings().group(ItemGroup.COMBAT).fireproof());
         public static final Item DRAGON_CHESTPLATE = new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST,
-                        new Item.Settings().group(ItemGroup.COMBAT));
+                        new Item.Settings().group(ItemGroup.COMBAT).fireproof());
         public static final Item DRAGON_LEGGINGS = new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.LEGS,
-                        new Item.Settings().group(ItemGroup.COMBAT));
+                        new Item.Settings().group(ItemGroup.COMBAT).fireproof());
         public static final Item DRAGON_BOOTS = new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.FEET,
-                        new Item.Settings().group(ItemGroup.COMBAT));
+                        new Item.Settings().group(ItemGroup.COMBAT).fireproof());
 
         public static void init() {
                 // Items
