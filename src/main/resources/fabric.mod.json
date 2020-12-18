@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 1.0,
   "id": "dragonloot",
-  "version": "${version}",
+  "version": "1.0.1",
   "name": "DragonLoot",
   "description": "Adds loot for the enderdragon",
   "authors": [
