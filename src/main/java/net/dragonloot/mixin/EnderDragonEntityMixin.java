@@ -38,10 +38,11 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
       for (int i = 0; i < list.size(); ++i) {
         Entity entity = (Entity) list.get(i);
         if (entity instanceof PlayerEntity) {
-          dragonscalebonus = dragonscalebonus + 3;
+          int dropBonus = 1 + this.world.random.nextInt(3);
+          dragonscalebonus = dragonscalebonus + dropBonus;
         }
       }
-      for (int i = 0; i < (4 + dragonscalebonus); i++) {
+      for (int i = 0; i < (1 + dragonscalebonus); i++) {
         this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
       }
 
