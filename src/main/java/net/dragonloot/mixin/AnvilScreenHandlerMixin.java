@@ -15,7 +15,7 @@ import net.dragonloot.init.BlockInit;
 import net.dragonloot.network.SyncPacket;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.network.ServerSidePacketRegistry;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -26,6 +26,7 @@ import net.minecraft.screen.ForgingScreenHandler;
 import net.minecraft.screen.Property;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.ScreenHandlerType;
+import net.minecraft.server.network.ServerPlayerEntity;
 
 @Mixin(AnvilScreenHandler.class)
 public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler implements DragonAnvilInterface {
@@ -46,7 +47,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
       PacketByteBuf data = new PacketByteBuf(Unpooled.buffer());
       data.writeInt(player.getEntityId());
       data.writeString(state.getBlock().toString());
-      ServerSidePacketRegistry.INSTANCE.sendToPlayer(player, SyncPacket.ANVIL_SYNC_PACKET, data);
+      ServerPlayNetworking.send((ServerPlayerEntity) player, SyncPacket.ANVIL_SYNC_PACKET, data);
     }
   }
 
@@ -68,7 +69,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
     }
   }
 
-  @Inject(method = "getLevelCost", at = @At(value = "HEAD"))
+  @Inject(method = "getLevelCost", at = @At(value = "HEAD"), cancellable = true)
   @Environment(EnvType.CLIENT)
   public void getLevelCostMixin(CallbackInfoReturnable<Integer> info) {
     if (this.levelCost.get() > 30 && isDragonAnvil == true) {
