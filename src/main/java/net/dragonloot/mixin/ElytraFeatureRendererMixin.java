@@ -16,7 +16,6 @@ import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.client.render.entity.feature.ElytraFeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-//import net.minecraft.client.render.entity.model.ElytraEntityModel;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -30,7 +29,6 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
     extends FeatureRenderer<T, M> {
   private static final Identifier DRAGON_ELYTRA_TEXTURE = new Identifier(
       "dragonloot:textures/entity/dragon_elytra.png");
-  // private final ElytraEntityModel<T> elytraModel = new ElytraEntityModel<>();
   private final DragonElytraEntityModel<T> dragonElytraModel = new DragonElytraEntityModel<>();
 
   public ElytraFeatureRendererMixin(FeatureRendererContext<T, M> context) {
@@ -41,7 +39,7 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
   public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity,
       float f, float g, float h, float j, float k, float l, CallbackInfo info) {
     ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.CHEST);
-    if (itemStack.getItem() == ItemInit.DRAGON_CHESTPLATE) {
+    if (itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
       Identifier identifier4;
       if (livingEntity instanceof AbstractClientPlayerEntity) {
         AbstractClientPlayerEntity abstractClientPlayerEntity = (AbstractClientPlayerEntity) livingEntity;

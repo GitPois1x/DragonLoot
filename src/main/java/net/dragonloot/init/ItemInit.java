@@ -22,6 +22,8 @@ public class ItemInit {
                         new Item.Settings().group(ItemGroup.COMBAT).fireproof());
         public static final Item DRAGON_BOOTS = new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.FEET,
                         new Item.Settings().group(ItemGroup.COMBAT).fireproof());
+        public static final Item UPGRADED_DRAGON_CHESTPLATE = new DragonArmor(DRAGON_ARMOR_MATERIAL,
+                        EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT).fireproof());
 
         public static void init() {
                 // Items
@@ -31,5 +33,7 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, new Identifier("dragonloot", "dragon_chestplate"), DRAGON_CHESTPLATE);
                 Registry.register(Registry.ITEM, new Identifier("dragonloot", "dragon_leggings"), DRAGON_LEGGINGS);
                 Registry.register(Registry.ITEM, new Identifier("dragonloot", "dragon_boots"), DRAGON_BOOTS);
+                Registry.register(Registry.ITEM, new Identifier("dragonloot", "upgraded_dragon_chestplate"),
+                                UPGRADED_DRAGON_CHESTPLATE);
         }
 }

@@ -27,7 +27,7 @@ public abstract class LivingEntityMixin extends Entity {
     boolean bl = this.getFlag(7);
     LivingEntity livingEntity = (LivingEntity) (Object) this;
     ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.CHEST);
-    if (bl && !this.onGround && !this.hasVehicle() && itemStack.getItem() == ItemInit.DRAGON_CHESTPLATE) {
+    if (bl && !this.onGround && !this.hasVehicle() && itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
       return true;
     }
     return value;
