@@ -1,4 +1,5 @@
 {
+	"credit": "Made with Blockbench",
 	"texture_size": [64, 32],
 	"textures": {
 		"0": "dragonloot:item/dragon_helmet"
@@ -20,16 +21,44 @@
 		},
 		{
 			"name": "Mouth",
-			"from": [5, 7, 1],
-			"to": [11, 11, 4],
+			"from": [5, 7, 1.01],
+			"to": [11, 11, 1.01],
 			"rotation": {"angle": 0, "axis": "y", "origin": [18, 11, 4]},
 			"faces": {
 				"north": {"uv": [0.75, 9.5, 2.25, 11.5], "texture": "#0"},
+				"east": {"uv": [0, 9.5, 0, 11.5], "texture": "#0"},
+				"south": {"uv": [0.75, 9.5, 2.25, 11.5], "texture": "#0"},
+				"west": {"uv": [2.25, 9.5, 2.25, 11.5], "texture": "#0"},
+				"up": {"uv": [2.25, 8, 0.75, 8], "texture": "#0"},
+				"down": {"uv": [3.75, 8, 2.25, 8], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Mouth",
+			"from": [5, 7, 1.01],
+			"to": [5, 11, 4.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [18, 11, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 2], "texture": "#0"},
 				"east": {"uv": [0, 9.5, 0.75, 11.5], "texture": "#0"},
-				"south": {"uv": [3, 9.5, 4.5, 11.5], "texture": "#0"},
+				"south": {"uv": [3, 9.5, 3, 11.5], "texture": "#0"},
 				"west": {"uv": [2.25, 9.5, 3, 11.5], "texture": "#0"},
-				"up": {"uv": [2.25, 9.5, 0.75, 8], "texture": "#0"},
-				"down": {"uv": [3.75, 8, 2.25, 9.5], "texture": "#0"}
+				"up": {"uv": [0.75, 9.5, 0.75, 8], "texture": "#0"},
+				"down": {"uv": [2.25, 8, 2.25, 9.5], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Mouth",
+			"from": [11, 7, 1.01],
+			"to": [11, 11, 4.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [24, 11, 4]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 2], "texture": "#0"},
+				"east": {"uv": [0, 9.5, 0.75, 11.5], "texture": "#0"},
+				"south": {"uv": [3, 9.5, 3, 11.5], "texture": "#0"},
+				"west": {"uv": [2.25, 9.5, 3, 11.5], "texture": "#0"},
+				"up": {"uv": [0.75, 9.5, 0.75, 8], "texture": "#0"},
+				"down": {"uv": [2.25, 8, 2.25, 9.5], "texture": "#0"}
 			}
 		},
 		{
@@ -118,8 +147,8 @@
 		},
 		{
 			"name": "MouthRoof",
-			"from": [5, 11, 1],
-			"to": [11, 11, 4],
+			"from": [5, 11, 1.01],
+			"to": [11, 11, 4.01],
 			"rotation": {"angle": 0, "axis": "y", "origin": [11, 19, 9]},
 			"faces": {
 				"north": {"uv": [0.75, 16, 2.25, 16], "texture": "#missing"},
