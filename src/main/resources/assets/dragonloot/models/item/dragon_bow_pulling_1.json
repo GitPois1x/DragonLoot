@@ -1,0 +1,6 @@
+{
+    "parent": "dragonloot:item/dragon_bow",
+    "textures": {
+        "layer0": "dragonloot:item/dragon_bow_pulling_1"
+    }
+}

@@ -4,17 +4,20 @@
   "package": "net.dragonloot.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "EnderDragonEntityMixin",
-    "PlayerEntityMixin",
-    "LivingEntityMixin",
+    "AnvilBlockMixin",
     "AnvilScreenHandlerMixin",
+    "BowItemMixin",
+    "CrossbowItemMixin",
+    "EnderDragonEntityMixin",
     "ItemEntityMixin",
-    "AnvilBlockMixin"
+    "LivingEntityMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
-    "HeadFeatureRendererMixin",
+    "ClientPlayerEntityMixin",
     "ElytraFeatureRendererMixin",
-    "ClientPlayerEntityMixin"
+    "HeadFeatureRendererMixin",
+    "PlayerEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

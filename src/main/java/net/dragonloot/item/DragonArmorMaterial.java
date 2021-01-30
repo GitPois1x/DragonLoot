@@ -10,6 +10,18 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
 public class DragonArmorMaterial implements ArmorMaterial {
+
+    private DragonArmorMaterial() {}
+
+    private static DragonArmorMaterial INSTANCE = null;
+
+    public static DragonArmorMaterial getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new DragonArmorMaterial();
+        }
+        return INSTANCE;
+    }
+
     private static final int[] BASE_DURABILITY = new int[] { 28, 32, 35, 26 };
     private static final int[] PROTECTION_AMOUNTS = new int[] { 7, 9, 10, 7 };
 
@@ -38,6 +50,7 @@ public class DragonArmorMaterial implements ArmorMaterial {
         return Ingredient.ofItems(ItemInit.DRAGON_SCALE_ITEM);
     }
 
+    @Override
     @Environment(EnvType.CLIENT)
     public String getName() {
         return "dragon_armor";
