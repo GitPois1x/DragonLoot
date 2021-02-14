@@ -25,19 +25,6 @@ public class SyncPacket {
             });
         });
 
-        // ClientSidePacketRegistry.INSTANCE.register(ANVIL_SYNC_PACKET, (context, buffer) -> {
-        //     int entityId = buffer.readInt();
-        //     String blockString = buffer.readString();
-        //     context.getTaskQueue().execute(() -> {
-        //         if (context.getPlayer().world.getEntityById(entityId) != null) {
-        //             PlayerEntity player = (PlayerEntity) context.getPlayer().world.getEntityById(entityId);
-        //             if (player.currentScreenHandler instanceof AnvilScreenHandler) {
-        //                 ((DragonAnvilInterface) player.currentScreenHandler).setDragonAnvil(blockString);
-        //             }
-
-        //         }
-        //     });
-        // });
     }
 
 }
