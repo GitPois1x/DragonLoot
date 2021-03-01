@@ -18,5 +18,10 @@
   "item.dragonloot.dragon_bow": "Dragon Bow",
   "item.dragonloot.dragon_crossbow": "Dragon Crossbow",
 
-  "itemGrouup.dragonloot.dragonloot": "Dragon Loot"
+  "itemGroup.dragonloot.dragonloot": "Dragon Loot",
+
+  "text.autoconfig.dragonloot.title": "DragonLoot Config",
+  "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "Scale minimum drop amount",
+  "text.autoconfig.dragonloot.option.additional_scales_per_player": "Additional scales per player",
+  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "Additional scale drop chance"
 }
