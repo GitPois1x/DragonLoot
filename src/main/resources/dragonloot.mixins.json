@@ -11,7 +11,8 @@
     "EnderDragonEntityMixin",
     "ItemEntityMixin",
     "LivingEntityMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "PlayerInventoryMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin",
