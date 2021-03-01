@@ -1,6 +1,40 @@
 {
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "dragonloot:item/dragon_sword"
-  }
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "dragonloot:item/dragon_sword"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [16, -90, 61],
+			"translation": [0, 6, 1.5],
+			"scale": [2, 2, 1]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [16, 90, -61],
+			"translation": [0, 6, 1.5],
+			"scale": [2, 2, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [68, 90, 0],
+			"translation": [0.5, 3.5, 1.5],
+			"scale": [1.3, 1.3, 0.65]
+		},
+		"firstperson_lefthand": {
+			"rotation": [68, -90, 0],
+			"translation": [0.5, 3.5, 1.5],
+			"scale": [1.3, 1.3, 0.65]
+		},
+		"ground": {
+			"translation": [0, 4.25, 0],
+			"scale": [1, 1, 0.5]
+		},
+		"gui": {
+			"translation": [-0.25, 0, 0],
+			"scale": [1.2, 1.2, 1]
+		},
+		"fixed": {
+			"rotation": [0, 0, 95]
+		}
+	}
 }
