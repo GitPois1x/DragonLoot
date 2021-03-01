@@ -2,7 +2,6 @@ package net.dragonloot.network;
 
 import net.dragonloot.access.DragonAnvilInterface;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.network.ClientSidePacketRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.AnvilScreenHandler;
 import net.minecraft.util.Identifier;
