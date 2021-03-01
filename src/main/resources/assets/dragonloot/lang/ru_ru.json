@@ -1,6 +1,5 @@
 {
   "block.dragonloot.dragon_anvil": "Драконья наковальня",
-
   "item.dragonloot.dragon_scale": "Драконья чешуя",
 
   "item.dragonloot.dragon_helmet": "Шлем из драконей чешуи",
@@ -9,4 +8,13 @@
   "item.dragonloot.dragon_boots": "Ботинки из драконей чешуи",
   "item.dragonloot.upgraded_dragon_chestplate": "Улучшенный нагрудник из драконей чешуи"
 
+  "item.dragonloot.dragon_pickaxe": "Dragon Pickaxe",
+  "item.dragonloot.dragon_axe": "Dragon Axe",
+  "item.dragonloot.dragon_shovel": "Dragon Shovel",
+  "item.dragonloot.dragon_hoe": "Dragon Hoe",
+  "item.dragonloot.dragon_sword": "Dragon Sword",
+  "item.dragonloot.dragon_bow": "Dragon Bow",
+  "item.dragonloot.dragon_crossbow": "Dragon Crossbow",
+
+  "itemGroup.dragonloot.dragonloot": "DragonLoot"
 }
