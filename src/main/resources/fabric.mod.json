@@ -22,6 +22,9 @@
     ],
     "client": [
       "net.dragonloot.DragonLootClient"
+    ],
+    "modmenu": [
+      "net.dragonloot.config.ModMenuIntegration"
     ]
   },
   "mixins": [
