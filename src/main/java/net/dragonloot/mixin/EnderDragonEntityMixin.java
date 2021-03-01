@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
 
+import net.dragonloot.init.ConfigInit;
 import net.dragonloot.init.ItemInit;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -38,14 +39,20 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
       for (int i = 0; i < list.size(); ++i) {
         Entity entity = (Entity) list.get(i);
         if (entity instanceof PlayerEntity) {
-          int dropBonus = 1 + this.world.random.nextInt(3);
+          int dropBonus = ConfigInit.CONFIG.additional_scales_per_player;
           dragonscalebonus = dragonscalebonus + dropBonus;
         }
       }
-      for (int i = 0; i < (1 + dragonscalebonus); i++) {
+
+      for (int i = 0; i < (ConfigInit.CONFIG.scale_minimum_drop_amount); i++) {
         this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
       }
+      for (int u = 0; u < dragonscalebonus; u++) {
+        if (this.world.random.nextFloat() <= ConfigInit.CONFIG.additional_scale_drop_chance) {
+          this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
+        }
 
+      }
     }
   }
 
