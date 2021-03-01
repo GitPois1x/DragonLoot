@@ -5,9 +5,6 @@ import net.dragonloot.item.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class ItemInit {
@@ -30,26 +27,26 @@ public class ItemInit {
 
         // Tools
         public static final DragonPickaxeItem DRAGON_PICKAXE_ITEM = new DragonPickaxeItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static final DragonAxeItem DRAGON_AXE_ITEM = new DragonAxeItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static final DragonShovelItem DRAGON_SHOVEL_ITEM = new DragonShovelItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static final DragonHoeItem DRAGON_HOE_ITEM = new DragonHoeItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         // Weapons
         public static final DragonSwordItem DRAGON_SWORD_ITEM = new DragonSwordItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static final DragonBowItem DRAGON_BOW_ITEM = new DragonBowItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static final DragonCrossbowItem DRAGON_CROSSBOW_ITEM = new DragonCrossbowItem(
-                new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static void init() {
                 // Items
@@ -59,7 +56,8 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_chestplate"), DRAGON_CHESTPLATE);
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_leggings"), DRAGON_LEGGINGS);
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_boots"), DRAGON_BOOTS);
-                Registry.register(Registry.ITEM, DragonLootMain.ID("upgraded_dragon_chestplate"), UPGRADED_DRAGON_CHESTPLATE);
+                Registry.register(Registry.ITEM, DragonLootMain.ID("upgraded_dragon_chestplate"),
+                                UPGRADED_DRAGON_CHESTPLATE);
                 // Tools
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_pickaxe"), DRAGON_PICKAXE_ITEM);
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_shovel"), DRAGON_SHOVEL_ITEM);
