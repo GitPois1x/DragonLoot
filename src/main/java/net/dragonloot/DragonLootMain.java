@@ -14,6 +14,7 @@ public class DragonLootMain implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ConfigInit.init();
         BlockInit.init();
         ItemInit.init();
         TagInit.init();
