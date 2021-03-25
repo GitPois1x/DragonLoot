@@ -21,5 +21,9 @@
   "text.autoconfig.dragonloot.title": "DragonLoot Config",
   "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "Scale minimum drop amount",
   "text.autoconfig.dragonloot.option.additional_scales_per_player": "Additional scales per player",
-  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "Additional scale drop chance"
+  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "Additional scale drop chance",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "Dragon Armor Helmet Protection",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "Dragon Armor Chestplate Protection",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "Dragon Armor Leggings Protection",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Dragon Armor Boots Protection"
 }

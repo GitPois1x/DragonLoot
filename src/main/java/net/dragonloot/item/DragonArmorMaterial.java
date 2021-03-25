@@ -1,5 +1,6 @@
 package net.dragonloot.item;
 
+import net.dragonloot.init.ConfigInit;
 import net.dragonloot.init.ItemInit;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -11,7 +12,8 @@ import net.minecraft.sound.SoundEvents;
 
 public class DragonArmorMaterial implements ArmorMaterial {
 
-    private DragonArmorMaterial() {}
+    private DragonArmorMaterial() {
+    }
 
     private static DragonArmorMaterial INSTANCE = null;
 
@@ -23,7 +25,9 @@ public class DragonArmorMaterial implements ArmorMaterial {
     }
 
     private static final int[] BASE_DURABILITY = new int[] { 28, 32, 35, 26 };
-    private static final int[] PROTECTION_AMOUNTS = new int[] { 7, 9, 10, 7 };
+    private static final int[] PROTECTION_AMOUNTS = new int[] { ConfigInit.CONFIG.dragon_armor_protection_boots,
+            ConfigInit.CONFIG.dragon_armor_protection_leggings, ConfigInit.CONFIG.dragon_armor_protection_chest,
+            ConfigInit.CONFIG.dragon_armor_protection_helmet };
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot) {
