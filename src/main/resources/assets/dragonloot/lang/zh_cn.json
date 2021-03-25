@@ -1,0 +1,25 @@
+{
+  "block.dragonloot.dragon_anvil": "龙砧",
+  "item.dragonloot.dragon_scale": "龙鳞",
+  
+  "item.dragonloot.dragon_helmet": "龙鳞头盔",
+  "item.dragonloot.dragon_chestplate": "龙鳞胸甲",
+  "item.dragonloot.dragon_leggings": "龙鳞护腿",
+  "item.dragonloot.dragon_boots": "龙鳞靴子",
+  "item.dragonloot.upgraded_dragon_chestplate": "羽翼龙鳞胸甲",
+
+  "item.dragonloot.dragon_pickaxe": "龙镐",
+  "item.dragonloot.dragon_axe": "龙斧",
+  "item.dragonloot.dragon_shovel": "龙铲",
+  "item.dragonloot.dragon_hoe": "龙锄",
+  "item.dragonloot.dragon_sword": "龙剑",
+  "item.dragonloot.dragon_bow": "龙弓",
+  "item.dragonloot.dragon_crossbow": "龙弩",
+
+  "itemGroup.dragonloot.dragonloot": "龙战利品",
+
+  "text.autoconfig.dragonloot.title": "龙战利品配置",
+  "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "龙鳞最低掉落数量",
+  "text.autoconfig.dragonloot.option.additional_scales_per_player": "每个玩家额外龙鳞",
+  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "额外龙鳞掉落几率"
+}
