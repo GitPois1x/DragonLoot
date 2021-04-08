@@ -1,15 +1,14 @@
 package net.dragonloot.config;
 
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.shadowed.blue.endless.jankson.Comment;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 
 @Config(name = "dragonloot")
 @Config.Gui.Background("minecraft:textures/block/stone.png")
 public class DragonLootConfig implements ConfigData {
 
-  // @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
   public int scale_minimum_drop_amount = 3;
   public int additional_scales_per_player = 2;
   @Comment("0.8F = 80%")
