@@ -16,6 +16,10 @@
   "item.dragonloot.dragon_bow": "Dragon Bow",
   "item.dragonloot.dragon_crossbow": "Dragon Crossbow",
 
+  "item.dragonloot.dragon_horse_armor": "Dragon Horse Armor",
+  "item.dragonloot.dragon_trident": "Dragon Trident",
+  "entity.dragonloot.dragon_trident": "Dragon Trident",
+
   "itemGroup.dragonloot.dragonloot": "Dragon Loot",
 
   "text.autoconfig.dragonloot.title": "DragonLoot Config",

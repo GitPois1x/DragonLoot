@@ -1,7 +1,10 @@
 package net.dragonloot.init;
 
 import net.dragonloot.DragonLootMain;
+import net.dragonloot.compat.netheriteplus.NetheritePlusCompat;
+import net.dragonloot.compat.recipes.RecipeGenerator;
 import net.dragonloot.item.*;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
@@ -67,5 +70,11 @@ public class ItemInit {
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_sword"), DRAGON_SWORD_ITEM);
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_bow"), DRAGON_BOW_ITEM);
                 Registry.register(Registry.ITEM, DragonLootMain.ID("dragon_crossbow"), DRAGON_CROSSBOW_ITEM);
+
+                if (FabricLoader.getInstance().isModLoaded("netherite_plus")) {
+                        NetheritePlusCompat.loadItems();
+                        NetheritePlusCompat.loadRecipes();
+                }
+                RecipeGenerator.addRecipes();
         }
 }

@@ -12,13 +12,18 @@
     "ItemEntityMixin",
     "LivingEntityMixin",
     "PlayerEntityMixin",
-    "PlayerInventoryMixin"
+    "PlayerInventoryMixin",
+    "RecipeManagerMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin",
     "ElytraFeatureRendererMixin",
     "HeadFeatureRendererMixin",
-    "PlayerEntityRendererMixin"
+    "PlayerEntityRendererMixin",
+    "AbstractClientPlayerEntityMixin",
+    "TridentEntityRendererMixin",
+    "ItemRendererMixin",
+    "ItemRendererInterface"
   ],
   "injectors": {
     "defaultRequire": 1

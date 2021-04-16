@@ -17,7 +17,7 @@ public class DragonHelmetModel extends Model {
 		base = new ModelPart(64, 32, 0, 0);
 		base.setPivot(0.0F, 24.0F, 1.0F);
 		base.setTextureOffset(32, 8).addCuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 0.0F, 0.0F, false);
-		base.setTextureOffset(0, 16).addCuboid(-3.0F, -7.0F, -6.99F, 6.0F, 4.0F, 0.0F, 0.0F, false);
+		base.setTextureOffset(19, 28).addCuboid(-3.0F, -7.0F, -6.99F, 6.0F, 4.0F, 0.0F, 0.0F, false);
 		base.setTextureOffset(0, 16).addCuboid(3.0F, -7.0F, -6.99F, 0.0F, 4.0F, 3.0F, 0.0F, false);
 		base.setTextureOffset(0, 16).addCuboid(-3.0F, -7.0F, -6.99F, 0.0F, 4.0F, 3.0F, 0.0F, false);
 		base.setTextureOffset(8, 17).addCuboid(-4.0F, 0.0F, -4.0F, 8.0F, 0.0F, 8.0F, 0.0F, false);
