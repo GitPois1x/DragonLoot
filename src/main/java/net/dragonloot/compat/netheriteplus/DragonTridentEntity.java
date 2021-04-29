@@ -1,4 +1,4 @@
-package net.dragonloot.entity;
+package net.dragonloot.compat.netheriteplus;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -17,7 +17,6 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.dragonloot.compat.netheriteplus.NetheritePlusCompat;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 

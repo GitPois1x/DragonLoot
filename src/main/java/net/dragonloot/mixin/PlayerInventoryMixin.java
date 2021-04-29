@@ -20,14 +20,14 @@ import net.minecraft.util.collection.DefaultedList;
 @Mixin(PlayerInventory.class)
 public class PlayerInventoryMixin {
     @Shadow
-    @Final
-    public PlayerEntity player;
+    public final PlayerEntity player;
     @Shadow
     @Final
-    public DefaultedList<ItemStack> armor;
+    public final DefaultedList<ItemStack> armor;
 
     public PlayerInventoryMixin(PlayerEntity player) {
         this.armor = DefaultedList.ofSize(4, ItemStack.EMPTY);
+        this.player = player;
     }
 
     @Inject(method = "damageArmor", at = @At("HEAD"), cancellable = true)

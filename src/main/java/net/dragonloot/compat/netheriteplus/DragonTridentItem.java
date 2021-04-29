@@ -1,6 +1,5 @@
 package net.dragonloot.compat.netheriteplus;
 
-import net.dragonloot.entity.DragonTridentEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;

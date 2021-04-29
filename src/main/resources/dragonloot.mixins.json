@@ -13,7 +13,8 @@
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "PlayerInventoryMixin",
-    "RecipeManagerMixin"
+    "RecipeManagerMixin",
+    "PersistentProjectileEntityMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin",
@@ -23,7 +24,8 @@
     "AbstractClientPlayerEntityMixin",
     "TridentEntityRendererMixin",
     "ItemRendererMixin",
-    "ItemRendererInterface"
+    "ItemRendererInterface",
+    "HeldItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -2,8 +2,9 @@ package net.dragonloot.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 
 import net.dragonloot.init.ItemInit;
 import net.minecraft.entity.Entity;
@@ -22,15 +23,15 @@ public abstract class LivingEntityMixin extends Entity {
     super(type, world);
   }
 
-  @ModifyArg(method = "Lnet/minecraft/entity/LivingEntity;initAi()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V"), index = 1)
-  private boolean initAiMixin(boolean value) {
+  @Inject(method = "Lnet/minecraft/entity/LivingEntity;initAi()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V", ordinal = 0), cancellable = true)
+  private void initAiMixin(CallbackInfo info) {
+    ItemStack itemStack = ((LivingEntity) (Object) this).getEquippedStack(EquipmentSlot.CHEST);
     boolean bl = this.getFlag(7);
-    LivingEntity livingEntity = (LivingEntity) (Object) this;
-    ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.CHEST);
     if (bl && !this.onGround && !this.hasVehicle() && itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
-      return true;
+      this.setFlag(7, true);
+      info.cancel();
     }
-    return value;
+
   }
 
 }
