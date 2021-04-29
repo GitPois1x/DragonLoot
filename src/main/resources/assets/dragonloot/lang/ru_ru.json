@@ -6,15 +6,28 @@
   "item.dragonloot.dragon_chestplate": "Нагрудник из драконей чешуи",
   "item.dragonloot.dragon_leggings": "Поножи из драконей чешуи",
   "item.dragonloot.dragon_boots": "Ботинки из драконей чешуи",
-  "item.dragonloot.upgraded_dragon_chestplate": "Улучшенный нагрудник из драконей чешуи"
+  "item.dragonloot.upgraded_dragon_chestplate": "Улучшенный нагрудник из драконей чешуи",
 
-  "item.dragonloot.dragon_pickaxe": "Dragon Pickaxe",
-  "item.dragonloot.dragon_axe": "Dragon Axe",
-  "item.dragonloot.dragon_shovel": "Dragon Shovel",
-  "item.dragonloot.dragon_hoe": "Dragon Hoe",
-  "item.dragonloot.dragon_sword": "Dragon Sword",
-  "item.dragonloot.dragon_bow": "Dragon Bow",
-  "item.dragonloot.dragon_crossbow": "Dragon Crossbow",
+  "item.dragonloot.dragon_pickaxe": "Драконья кирка",
+  "item.dragonloot.dragon_axe": "Драконий топор",
+  "item.dragonloot.dragon_shovel": "Драконья лопата",
+  "item.dragonloot.dragon_hoe": "Драконья мотыга",
+  "item.dragonloot.dragon_sword": "Драконий меч",
+  "item.dragonloot.dragon_bow": "Драконий лук",
+  "item.dragonloot.dragon_crossbow": "Драконий арбалет",
 
-  "itemGroup.dragonloot.dragonloot": "DragonLoot"
+  "item.dragonloot.dragon_horse_armor": "Драконья конская броня",
+  "item.dragonloot.dragon_trident": "Драконий трезубец",
+  "entity.dragonloot.dragon_trident": "Драконий трезубец",
+
+  "itemGroup.dragonloot.dragonloot": "Dragon Loot",
+
+  "text.autoconfig.dragonloot.title": "Настройка DragonLoot",
+  "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "Минимальное кол-во падающей чешуи",
+  "text.autoconfig.dragonloot.option.additional_scales_per_player": "Доп. число чешуек за игрока",
+  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "Доп. шанс выпадения чешуи",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "Защита шлема из драконьей чешуи",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "Защита нагрудника из драконей чешуи",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "Защита поножей из драконей чешуи",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Защита ботинок из драконей чешуи"
 }
