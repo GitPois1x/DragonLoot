@@ -29,5 +29,10 @@
   "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "Dragon Armor Helmet Protection",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "Dragon Armor Chestplate Protection",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "Dragon Armor Leggings Protection",
-  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Dragon Armor Boots Protection"
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Dragon Armor Boots Protection",
+  "text.autoconfig.dragonloot.option.dragon_armor_durability_multiplier": "Dragon Armor Durability Multiplier",
+  "text.autoconfig.dragonloot.option.dragon_item_durability_multiplier": "Dragon Item Durability Multiplier",
+
+  "dragonloot.advancements.dragon_armor.title": "The Armor at The End of The Game",
+  "dragonloot.advancements.dragon_armor.description": "Get a full suit of Dragon armor"
 }

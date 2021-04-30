@@ -1,0 +1,48 @@
+{
+    "parent": "minecraft:nether/netherite_armor",
+    "display": {
+        "icon": {
+            "item": "dragonloot:dragon_chestplate",
+            "nbt": "{Damage:0}"
+        },
+        "title": {
+            "translate": "dragonloot.advancements.dragon_armor.title"
+        },
+        "description": {
+            "translate": "dragonloot.advancements.dragon_armor.description"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "rewards": {
+        "experience": 100
+    },
+    "criteria": {
+        "dragon_armor": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "dragonloot:dragon_helmet"
+                    },
+                    {
+                        "item": "dragonloot:dragon_chestplate"
+                    },
+                    {
+                        "item": "dragonloot:dragon_leggings"
+                    },
+                    {
+                        "item": "dragonloot:dragon_boots"
+                    }
+                ]
+            }
+        }
+    },
+    "requirements": [
+        [
+            "dragon_armor"
+        ]
+    ]
+}
