@@ -46,10 +46,12 @@ public class ItemInit {
                         new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
         public static final DragonBowItem DRAGON_BOW_ITEM = new DragonBowItem(
-                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP)
+                                        .maxDamage(DragonToolMaterial.getInstance().getDurability()));
 
         public static final DragonCrossbowItem DRAGON_CROSSBOW_ITEM = new DragonCrossbowItem(
-                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP)
+                                        .maxDamage(DragonToolMaterial.getInstance().getDurability()));
 
         public static void init() {
                 // Items

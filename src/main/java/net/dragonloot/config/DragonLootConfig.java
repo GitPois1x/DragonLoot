@@ -21,5 +21,7 @@ public class DragonLootConfig implements ConfigData {
   public int dragon_armor_protection_leggings = 9;
   @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
   public int dragon_armor_protection_boots = 7;
+  public int dragon_armor_durability_multiplier = 37;
+  public int dragon_item_durability_multiplier = 37;
 
 }

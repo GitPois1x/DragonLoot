@@ -31,7 +31,7 @@ public class DragonArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot) {
-        return BASE_DURABILITY[equipmentSlot.getEntitySlotId()] * 37;
+        return BASE_DURABILITY[equipmentSlot.getEntitySlotId()] * ConfigInit.CONFIG.dragon_armor_durability_multiplier;
     }
 
     @Override
