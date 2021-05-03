@@ -3,11 +3,13 @@ package net.dragonloot.mixin;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
 
 import net.fabricmc.api.Environment;
 import net.dragonloot.init.ItemInit;
+import net.dragonloot.item.DragonCrossbowItem;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -34,8 +36,25 @@ public class HeldItemRendererMixin {
         this.client = client;
     }
 
+    @ModifyVariable(method = "Lnet/minecraft/client/render/item/HeldItemRenderer;renderItem(FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;Lnet/minecraft/client/network/ClientPlayerEntity;I)V", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getActiveItem()Lnet/minecraft/item/ItemStack;"), ordinal = 0)
+    private boolean renderItemMixinOne(boolean original) {
+        if (client.player.getActiveItem().getItem() == ItemInit.DRAGON_CROSSBOW_ITEM) {
+            return false;
+        } else
+            return original;
+    }
+
+    @ModifyVariable(method = "Lnet/minecraft/client/render/item/HeldItemRenderer;renderItem(FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;Lnet/minecraft/client/network/ClientPlayerEntity;I)V", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"), ordinal = 0)
+    private boolean renderItemMixinTwo(boolean original) {
+        if (client.player.getOffHandStack().getItem() == ItemInit.DRAGON_CROSSBOW_ITEM
+                && DragonCrossbowItem.isCharged(client.player.getOffHandStack())) {
+            return !client.player.getMainHandStack().isEmpty();
+        } else
+            return original;
+    }
+
     @Inject(method = "renderFirstPersonItem", at = @At(value = "HEAD"), cancellable = true)
-    private void renderFirstPersonItem(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand,
+    private void renderFirstPersonItemMixin(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand,
             float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices,
             VertexConsumerProvider vertexConsumers, int light, CallbackInfo info) {
         if (item.getItem() == ItemInit.DRAGON_CROSSBOW_ITEM) {

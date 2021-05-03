@@ -9,6 +9,7 @@ import net.dragonloot.DragonLootMain;
 import net.dragonloot.compat.recipes.RecipeGenerator;
 import net.dragonloot.compat.recipes.RecipeMaterial;
 import net.dragonloot.init.ItemGroupInit;
+import net.dragonloot.item.DragonToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
@@ -20,9 +21,11 @@ import net.minecraft.item.HorseArmorItem;
 public class NetheritePlusCompat {
 
         public static final HorseArmorItem DRAGON_HORSE_ARMOR_ITEM = new HorseArmorItem(18, "dragon",
-                        new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().maxDamage(DragonToolMaterial.getInstance().getDurability()).fireproof()
+                                        .group(ItemGroupInit.DRAGON_ITEM_GROUP));
         public static final DragonTridentItem DRAGON_TRIDENT_ITEM = new DragonTridentItem(
-                        new Item.Settings().maxDamage(635).fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+                        new Item.Settings().maxDamage(DragonToolMaterial.getInstance().getDurability()).fireproof()
+                                        .group(ItemGroupInit.DRAGON_ITEM_GROUP));
         public static final Queue<Integer> TRIDENT_QUEUE = new LinkedList<>();
 
         public static void loadItems() {
