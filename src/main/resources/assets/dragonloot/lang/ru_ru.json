@@ -29,5 +29,10 @@
   "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "Защита шлема из драконьей чешуи",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "Защита нагрудника из драконей чешуи",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "Защита поножей из драконей чешуи",
-  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Защита ботинок из драконей чешуи"
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Защита ботинок из драконей чешуи",
+  "text.autoconfig.dragonloot.option.dragon_armor_durability_multiplier": "Множитель прочности драконей брони",
+  "text.autoconfig.dragonloot.option.dragon_item_durability_multiplier": "Множитель прочности драконих инструментов",
+
+  "dragonloot.advancements.dragon_armor.title": "Броня из конца игры",
+  "dragonloot.advancements.dragon_armor.description": "Соберите полный комплект драконей брони"
 }
