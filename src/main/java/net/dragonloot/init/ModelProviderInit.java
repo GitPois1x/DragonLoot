@@ -1,6 +1,5 @@
 package net.dragonloot.init;
 
-import net.dragonloot.compat.netheriteplus.NetheritePlusCompat;
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.CrossbowItem;
@@ -47,7 +46,7 @@ public class ModelProviderInit {
                                                                 : 0.0F);
 
                 if (FabricLoader.getInstance().isModLoaded("netherite_plus")) {
-                        FabricModelPredicateProviderRegistry.register(NetheritePlusCompat.DRAGON_TRIDENT_ITEM,
+                        FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_TRIDENT_ITEM,
                                         new Identifier("throwing"),
                                         (itemStack, clientWorld, livingEntity) -> livingEntity != null
                                                         && livingEntity.isUsingItem()

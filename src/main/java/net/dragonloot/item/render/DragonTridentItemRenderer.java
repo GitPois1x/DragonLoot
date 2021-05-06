@@ -1,4 +1,4 @@
-package net.dragonloot.compat.netheriteplus;
+package net.dragonloot.item.render;
 
 import net.dragonloot.DragonLootMain;
 import net.minecraft.client.render.VertexConsumer;

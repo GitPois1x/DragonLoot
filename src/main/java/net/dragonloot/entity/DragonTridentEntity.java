@@ -1,4 +1,4 @@
-package net.dragonloot.compat.netheriteplus;
+package net.dragonloot.entity;
 
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -17,19 +17,20 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.dragonloot.init.ItemInit;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
 public class DragonTridentEntity extends TridentEntity {
     public DragonTridentEntity(EntityType<? extends TridentEntity> entityType, World world) {
         super(entityType, world);
-        tridentStack = new ItemStack(NetheritePlusCompat.DRAGON_TRIDENT_ITEM);
+        tridentStack = new ItemStack(ItemInit.DRAGON_TRIDENT_ITEM);
     }
 
     @Environment(EnvType.CLIENT)
     public DragonTridentEntity(World world, double x, double y, double z) {
         super(world, x, y, z);
-        tridentStack = new ItemStack(NetheritePlusCompat.DRAGON_TRIDENT_ITEM);
+        tridentStack = new ItemStack(ItemInit.DRAGON_TRIDENT_ITEM);
     }
 
     public DragonTridentEntity(World world, LivingEntity owner, ItemStack stack) {

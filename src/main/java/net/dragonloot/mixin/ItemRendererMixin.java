@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import net.dragonloot.compat.netheriteplus.DragonTridentItemRenderer;
-import net.dragonloot.compat.netheriteplus.NetheritePlusCompat;
+import net.dragonloot.init.ItemInit;
+import net.dragonloot.item.render.DragonTridentItemRenderer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
@@ -42,18 +42,18 @@ public abstract class ItemRendererMixin {
             MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model,
             CallbackInfo info) {
         if (!stack.isEmpty() && FabricLoader.getInstance().isModLoaded("netherite_plus")
-                && stack.getItem() == NetheritePlusCompat.DRAGON_TRIDENT_ITEM) {
+                && stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM) {
             matrices.push();
             boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND
                     || renderMode == ModelTransformation.Mode.FIXED;
-            if (stack.getItem() == NetheritePlusCompat.DRAGON_TRIDENT_ITEM && bl) {
+            if (stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && bl) {
                 model = ((ItemRendererInterface) this).getModelsInvoker().getModelManager()
                         .getModel(new ModelIdentifier("dragonloot" + ":dragon_trident#inventory"));
             }
 
             model.getTransformation().getTransformation(renderMode).apply(leftHanded, matrices);
             matrices.translate(-0.5D, -0.5D, -0.5D);
-            if (model.isBuiltin() || stack.getItem() == NetheritePlusCompat.DRAGON_TRIDENT_ITEM && !bl) {//
+            if (model.isBuiltin() || stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && !bl) {//
                 DragonTridentItemRenderer.render(stack, renderMode, matrices, vertexConsumers, light, overlay);
             } else {
                 RenderLayer renderLayer = RenderLayers.getItemLayer(stack, true);
@@ -75,7 +75,7 @@ public abstract class ItemRendererMixin {
             CallbackInfoReturnable<BakedModel> info) {
         Item item = stack.getItem();
         BakedModel bakedModel2;
-        if (item == NetheritePlusCompat.DRAGON_TRIDENT_ITEM) {
+        if (item == ItemInit.DRAGON_TRIDENT_ITEM) {
             bakedModel2 = this.models.getModelManager()
                     .getModel(new ModelIdentifier("minecraft:trident_in_hand#inventory"));
             ClientWorld clientWorld = world instanceof ClientWorld ? (ClientWorld) world : null;
