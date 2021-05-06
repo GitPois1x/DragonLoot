@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:smithing",
+    "base": {
+        "item": "dragonloot:dragon_chestplate"
+    },
+    "addition": {
+        "item": "netherite_plus:netherite_elytra"
+    },
+    "result": {
+        "item": "dragonloot:upgraded_dragon_chestplate"
+    }
+}
