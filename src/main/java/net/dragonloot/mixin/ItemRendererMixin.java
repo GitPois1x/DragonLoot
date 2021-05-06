@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.dragonloot.init.ItemInit;
 import net.dragonloot.item.render.DragonTridentItemRenderer;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderLayers;
 import net.minecraft.client.render.VertexConsumer;
@@ -41,8 +40,7 @@ public abstract class ItemRendererMixin {
     public void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded,
             MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model,
             CallbackInfo info) {
-        if (!stack.isEmpty() && FabricLoader.getInstance().isModLoaded("netherite_plus")
-                && stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM) {
+        if (!stack.isEmpty() && stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM) {
             matrices.push();
             boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND
                     || renderMode == ModelTransformation.Mode.FIXED;
@@ -53,7 +51,7 @@ public abstract class ItemRendererMixin {
 
             model.getTransformation().getTransformation(renderMode).apply(leftHanded, matrices);
             matrices.translate(-0.5D, -0.5D, -0.5D);
-            if (model.isBuiltin() || stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && !bl) {//
+            if (model.isBuiltin() || stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && !bl) {
                 DragonTridentItemRenderer.render(stack, renderMode, matrices, vertexConsumers, light, overlay);
             } else {
                 RenderLayer renderLayer = RenderLayers.getItemLayer(stack, true);

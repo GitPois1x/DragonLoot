@@ -1,7 +1,6 @@
 package net.dragonloot.init;
 
 import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
@@ -44,13 +43,10 @@ public class ModelProviderInit {
                                                 && CrossbowItem.isCharged(itemStack)
                                                 && CrossbowItem.hasProjectile(itemStack, Items.FIREWORK_ROCKET) ? 1.0F
                                                                 : 0.0F);
-
-                if (FabricLoader.getInstance().isModLoaded("netherite_plus")) {
-                        FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_TRIDENT_ITEM,
-                                        new Identifier("throwing"),
-                                        (itemStack, clientWorld, livingEntity) -> livingEntity != null
-                                                        && livingEntity.isUsingItem()
-                                                        && livingEntity.getActiveItem() == itemStack ? 1.0F : 0.0F);
-                }
+                FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_TRIDENT_ITEM, new Identifier("throwing"),
+                                (itemStack, clientWorld,
+                                                livingEntity) -> livingEntity != null && livingEntity.isUsingItem()
+                                                                && livingEntity.getActiveItem() == itemStack ? 1.0F
+                                                                                : 0.0F);
         }
 }
