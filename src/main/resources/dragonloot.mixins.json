@@ -13,8 +13,7 @@
     "LivingEntityMixin",
     "PlayerEntityMixin",
     "PlayerInventoryMixin",
-    "RecipeManagerMixin",
-    "PersistentProjectileEntityMixin"
+    "RecipeManagerMixin"
   ],
   "client": [
     "ClientPlayerEntityMixin",
@@ -22,7 +21,6 @@
     "HeadFeatureRendererMixin",
     "PlayerEntityRendererMixin",
     "AbstractClientPlayerEntityMixin",
-    "TridentEntityRendererMixin",
     "ItemRendererMixin",
     "ItemRendererInterface",
     "HeldItemRendererMixin"

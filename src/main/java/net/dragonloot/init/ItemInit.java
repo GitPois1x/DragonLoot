@@ -1,8 +1,5 @@
 package net.dragonloot.init;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 import net.dragonloot.DragonLootMain;
 import net.dragonloot.compat.recipes.CompatRecipes;
 import net.dragonloot.compat.recipes.RecipeGenerator;
@@ -56,7 +53,6 @@ public class ItemInit {
         public static final DragonTridentItem DRAGON_TRIDENT_ITEM = new DragonTridentItem(
                         new Item.Settings().maxDamage(DragonToolMaterial.getInstance().getDurability()).fireproof()
                                         .group(ItemGroupInit.DRAGON_ITEM_GROUP));
-        public static final Queue<Integer> TRIDENT_QUEUE = new LinkedList<>();
 
         public static void init() {
                 // Items

@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.dragonloot.entity.model.DragonHelmetModel;
 import net.dragonloot.init.ItemInit;
+import net.fabricmc.api.Environment;
+import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -20,6 +22,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.client.render.entity.model.ModelWithHead;
 import net.minecraft.client.render.item.ItemRenderer;
 
+@Environment(EnvType.CLIENT)
 @Mixin(HeadFeatureRenderer.class)
 public class HeadFeatureRendererMixin {
   @Shadow

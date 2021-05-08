@@ -1,15 +1,17 @@
 package net.dragonloot;
 
 import net.dragonloot.init.ModelProviderInit;
-import net.dragonloot.network.SyncPacket;
+import net.dragonloot.init.NetworkInit;
+import net.dragonloot.init.RenderInit;
 import net.fabricmc.api.ClientModInitializer;
 
 public class DragonLootClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        SyncPacket.init();
+        RenderInit.init();
         ModelProviderInit.init();
+        NetworkInit.init();
     }
 
 }

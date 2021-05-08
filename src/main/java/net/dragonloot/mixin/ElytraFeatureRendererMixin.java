@@ -7,6 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import net.dragonloot.entity.model.DragonElytraEntityModel;
 import net.dragonloot.init.ItemInit;
+import net.fabricmc.api.Environment;
+import net.fabricmc.api.EnvType;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -24,6 +26,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
+@Environment(EnvType.CLIENT)
 @Mixin(ElytraFeatureRenderer.class)
 public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M extends EntityModel<T>>
     extends FeatureRenderer<T, M> {

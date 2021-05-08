@@ -35,16 +35,16 @@ dependencies {
     	exclude(group: "net.fabricmc.fabric-api")
   	}
 	// Netherite plus
-	modCompileOnly 'curse.maven:netherite-plus-mod-394120:3249517',{
-		exclude(group: "net.fabricmc.fabric-api")
-		exclude(module: "modmenu")
-	}
-	modCompileOnly 'com.oroarmor:oro-config-fabric:2.0.0'
-    modCompileOnly 'com.oroarmor:Multi-Item-Lib:1.2.0'
-	modCompileOnly "me.shedaniel:architectury:1.5.105:fabric",{
-		exclude(module: "fabric-api")
-        exclude(module: "modmenu")
-	}
+	// modCompileOnly 'curse.maven:netherite-plus-mod-394120:3249517',{
+	// 	exclude(group: "net.fabricmc.fabric-api")
+	// 	exclude(module: "modmenu")
+	// }
+	// modCompileOnly 'com.oroarmor:oro-config-fabric:2.0.0'
+    // modCompileOnly 'com.oroarmor:Multi-Item-Lib:1.2.0'
+	// modCompileOnly "me.shedaniel:architectury:1.5.105:fabric",{
+	// 	exclude(module: "fabric-api")
+    //     exclude(module: "modmenu")
+	// }
 	modCompileOnly("com.terraformersmc:modmenu:1.16.8") {
         exclude(module: "fabric-api")
     }
