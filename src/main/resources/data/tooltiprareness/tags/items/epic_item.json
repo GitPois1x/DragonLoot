@@ -1,0 +1,20 @@
+{
+    "replace": false,
+    "values": [
+        "dragonloot:dragon_scale",
+        "dragonloot:dragon_horse_armor",
+        "dragonloot:dragon_helmet",
+        "dragonloot:dragon_chestplate",
+        "dragonloot:dragon_leggings",
+        "dragonloot:dragon_boots",
+        "dragonloot:upgraded_dragon_chestplate",
+        "dragonloot:dragon_pickaxe",
+        "dragonloot:dragon_shovel",
+        "dragonloot:dragon_axe",
+        "dragonloot:dragon_hoe",
+        "dragonloot:dragon_sword",
+        "dragonloot:dragon_bow",
+        "dragonloot:dragon_crossbow",
+        "dragonloot:dragon_trident"
+    ]
+}
