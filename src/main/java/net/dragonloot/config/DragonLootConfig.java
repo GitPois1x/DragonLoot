@@ -23,5 +23,5 @@ public class DragonLootConfig implements ConfigData {
   public int dragon_armor_protection_boots = 7;
   public int dragon_armor_durability_multiplier = 37;
   public int dragon_item_durability_multiplier = 37;
-
+  public float dragon_item_base_damage = 5F;
 }

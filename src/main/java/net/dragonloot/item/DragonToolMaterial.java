@@ -31,7 +31,7 @@ public class DragonToolMaterial implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 5;
+        return ConfigInit.CONFIG.dragon_item_base_damage;
     }
 
     @Override

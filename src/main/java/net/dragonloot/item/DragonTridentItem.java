@@ -1,6 +1,7 @@
 package net.dragonloot.item;
 
 import net.dragonloot.entity.DragonTridentEntity;
+import net.dragonloot.init.ConfigInit;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
@@ -23,7 +24,7 @@ public class DragonTridentItem extends TridentItem {
     public DragonTridentItem(Settings settings) {
         super(settings);
         attributeModifiers.get(EntityAttributes.GENERIC_ATTACK_DAMAGE).forEach(modifier -> {
-            modifier.value = modifier.getValue();
+            modifier.value = modifier.getValue() + ConfigInit.CONFIG.dragon_item_base_damage / 5F;
         });
     }
 
