@@ -6,8 +6,7 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 public class RenderInit {
 
     public static void init() {
-        EntityRendererRegistry.INSTANCE.register(EntityInit.DRAGONTRIDENT_ENTITY,
-                (dispatcher, context) -> new DragonTridentEntityRenderer(dispatcher));
+        EntityRendererRegistry.INSTANCE.register(EntityInit.DRAGONTRIDENT_ENTITY, DragonTridentEntityRenderer::new);
     }
 
 }

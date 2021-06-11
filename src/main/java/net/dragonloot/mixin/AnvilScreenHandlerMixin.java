@@ -45,19 +45,19 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
     if (state.isOf(BlockInit.DRAGON_ANVIL_BLOCK)) {
       isDragonAnvil = true;
       PacketByteBuf data = new PacketByteBuf(Unpooled.buffer());
-      data.writeInt(player.getEntityId());
+      data.writeInt(player.getId());
       data.writeString(state.getBlock().toString());
       ServerPlayNetworking.send((ServerPlayerEntity) player, SyncPacket.ANVIL_SYNC_PACKET, data);
     }
   }
 
-  @Inject(method = "Lnet/minecraft/screen/AnvilScreenHandler;onTakeOutput(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;", at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/Property;set(I)V"), cancellable = true)
-  public void onTakeOutputMixin(PlayerEntity player, ItemStack stack, CallbackInfoReturnable<ItemStack> info) {
+  @Inject(method = "onTakeOutput", at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/Property;set(I)V"), cancellable = true)
+  public void onTakeOutputMixin(PlayerEntity player, ItemStack stack, CallbackInfo info) {
     if (isDragonAnvil == true) {
       this.context.run((world, blockPos) -> {
         this.levelCost.set(0);
         world.syncWorldEvent(1030, blockPos, 0);
-        info.setReturnValue(stack);
+        info.cancel();
       });
     }
   }

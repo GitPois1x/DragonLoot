@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import net.dragonloot.init.ConfigInit;
 import net.dragonloot.init.ItemInit;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.mob.MobEntity;
@@ -33,11 +32,11 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
   public void updatePostDeathMixin(CallbackInfo info) {
     if (!this.world.isClient && this.ticksSinceDeath == 180) {
       Box box = new Box(this.getBlockPos());
-      List<Entity> list = world.getEntitiesByClass(PlayerEntity.class, box.expand(128D),
+      List<PlayerEntity> list = world.getEntitiesByClass(PlayerEntity.class, box.expand(128D),
           EntityPredicates.EXCEPT_SPECTATOR);
       int dragonscalebonus = 0;
       for (int i = 0; i < list.size(); ++i) {
-        Entity entity = (Entity) list.get(i);
+        PlayerEntity entity = (PlayerEntity) list.get(i);
         if (entity instanceof PlayerEntity) {
           int dropBonus = ConfigInit.CONFIG.additional_scales_per_player;
           dragonscalebonus = dragonscalebonus + dropBonus;

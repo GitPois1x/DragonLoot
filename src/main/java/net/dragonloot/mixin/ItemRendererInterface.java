@@ -15,7 +15,7 @@ public interface ItemRendererInterface {
     @Invoker("getModels")
     ItemModels getModelsInvoker();
 
-    @Invoker("RenderBakedItemModel")
+    @Invoker("renderBakedItemModel")
     void renderBakedItemModelInvoker(BakedModel model, ItemStack stack, int light, int overlay, MatrixStack matrices,
             VertexConsumer vertexConsumer4);
 }

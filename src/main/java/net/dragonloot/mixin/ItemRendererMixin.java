@@ -72,7 +72,7 @@ public abstract class ItemRendererMixin {
     }
 
     @Inject(method = "getHeldItemModel", at = @At(value = "HEAD"), cancellable = true)
-    public void getHeldItemModelMixin(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity,
+    public void getHeldItemModelMixin(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity, int seed,
             CallbackInfoReturnable<BakedModel> info) {
         Item item = stack.getItem();
         BakedModel bakedModel2;
@@ -80,7 +80,7 @@ public abstract class ItemRendererMixin {
             bakedModel2 = this.models.getModelManager()
                     .getModel(new ModelIdentifier("minecraft:trident_in_hand#inventory"));
             ClientWorld clientWorld = world instanceof ClientWorld ? (ClientWorld) world : null;
-            BakedModel bakedModel3 = bakedModel2.getOverrides().apply(bakedModel2, stack, clientWorld, entity);
+            BakedModel bakedModel3 = bakedModel2.getOverrides().apply(bakedModel2, stack, clientWorld, entity, seed);
             info.setReturnValue(bakedModel3 == null ? this.models.getModelManager().getMissingModel() : bakedModel3);
         }
 

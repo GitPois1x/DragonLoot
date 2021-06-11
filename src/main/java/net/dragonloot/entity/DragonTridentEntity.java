@@ -18,7 +18,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -77,7 +77,7 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
                     this.dropStack(this.asItemStack(), 0.1F);
                 }
 
-                this.remove();
+                this.discard();
             } else if (i > 0) {
                 this.setNoClip(true);
                 Vec3d vec3d = new Vec3d(entity.getX() - this.getX(), entity.getEyeY() - this.getY(),
@@ -187,10 +187,10 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
     }
 
     @Override
-    public void readCustomDataFromTag(CompoundTag tag) {
-        super.readCustomDataFromTag(tag);
+    public void readCustomDataFromNbt(NbtCompound tag) {
+        super.readCustomDataFromNbt(tag);
         if (tag.contains("Dragon_Trident", 10)) {
-            this.tridentStack = ItemStack.fromTag(tag.getCompound("Dragon_Trident"));
+            this.tridentStack = ItemStack.fromNbt(tag.getCompound("Dragon_Trident"));
         }
 
         this.dealtDamage = tag.getBoolean("DealtDamage");
@@ -198,9 +198,9 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
     }
 
     @Override
-    public void writeCustomDataToTag(CompoundTag tag) {
-        super.writeCustomDataToTag(tag);
-        tag.put("Dragon_Trident", this.tridentStack.toTag(new CompoundTag()));
+    public void writeCustomDataToNbt(NbtCompound tag) {
+        super.writeCustomDataToNbt(tag);
+        tag.put("Dragon_Trident", this.tridentStack.writeNbt(new NbtCompound()));
         tag.putBoolean("DealtDamage", this.dealtDamage);
     }
 

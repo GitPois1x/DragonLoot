@@ -32,7 +32,8 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
     extends FeatureRenderer<T, M> {
   private static final Identifier DRAGON_ELYTRA_TEXTURE = new Identifier(
       "dragonloot:textures/entity/dragon_elytra.png");
-  private final DragonElytraEntityModel<T> dragonElytraModel = new DragonElytraEntityModel<>();
+  private final DragonElytraEntityModel<T> dragonElytraModel = new DragonElytraEntityModel<>(
+      DragonElytraEntityModel.getTexturedModelData().createModel());
 
   public ElytraFeatureRendererMixin(FeatureRendererContext<T, M> context) {
     super(context);

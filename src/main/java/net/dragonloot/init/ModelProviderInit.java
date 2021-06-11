@@ -9,19 +9,18 @@ public class ModelProviderInit {
 
         public static void init() {
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_BOW_ITEM, new Identifier("pull"), (
-                                itemStack, clientWorld,
-                                livingEntity) -> livingEntity != null && livingEntity.getActiveItem() != itemStack
-                                                ? 0.0F
+                                itemStack, clientWorld, livingEntity,
+                                seed) -> livingEntity != null && livingEntity.getActiveItem() != itemStack ? 0.0F
                                                 : (itemStack.getMaxUseTime() - livingEntity.getItemUseTimeLeft())
                                                                 / 20.0F);
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_BOW_ITEM, new Identifier("pulling"),
-                                (itemStack, clientWorld,
-                                                livingEntity) -> livingEntity != null && livingEntity.isUsingItem()
+                                (itemStack, clientWorld, livingEntity,
+                                                seed) -> livingEntity != null && livingEntity.isUsingItem()
                                                                 && livingEntity.getActiveItem() == itemStack ? 1.0F
                                                                                 : 0.0F);
 
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_CROSSBOW_ITEM, new Identifier("pull"),
-                                (itemStack, clientWorld, livingEntity) -> {
+                                (itemStack, clientWorld, livingEntity, seed) -> {
                                         if (livingEntity == null) {
                                                 return 0;
                                         }
@@ -31,21 +30,21 @@ public class ModelProviderInit {
                                                                         / (float) CrossbowItem.getPullTime(itemStack);
                                 });
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_CROSSBOW_ITEM, new Identifier("pulling"),
-                                (itemStack, clientWorld1,
-                                                livingEntity) -> livingEntity != null && livingEntity.isUsingItem()
+                                (itemStack, clientWorld1, livingEntity,
+                                                seed) -> livingEntity != null && livingEntity.isUsingItem()
                                                                 && livingEntity.getActiveItem() == itemStack
                                                                 && !CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F);
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_CROSSBOW_ITEM, new Identifier("charged"),
-                                (itemStack, clientWorld, livingEntity) -> livingEntity != null
+                                (itemStack, clientWorld, livingEntity, seed) -> livingEntity != null
                                                 && CrossbowItem.isCharged(itemStack) ? 1.0F : 0.0F);
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_CROSSBOW_ITEM, new Identifier("firework"),
-                                (itemStack, clientWorld, livingEntity) -> livingEntity != null
+                                (itemStack, clientWorld, livingEntity, seed) -> livingEntity != null
                                                 && CrossbowItem.isCharged(itemStack)
                                                 && CrossbowItem.hasProjectile(itemStack, Items.FIREWORK_ROCKET) ? 1.0F
                                                                 : 0.0F);
                 FabricModelPredicateProviderRegistry.register(ItemInit.DRAGON_TRIDENT_ITEM, new Identifier("throwing"),
-                                (itemStack, clientWorld,
-                                                livingEntity) -> livingEntity != null && livingEntity.isUsingItem()
+                                (itemStack, clientWorld, livingEntity,
+                                                seed) -> livingEntity != null && livingEntity.isUsingItem()
                                                                 && livingEntity.getActiveItem() == itemStack ? 1.0F
                                                                                 : 0.0F);
         }

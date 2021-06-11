@@ -26,12 +26,12 @@ public class EntitySpawnPacket {
 		PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
 		buf.writeVarInt(Registry.ENTITY_TYPE.getRawId(entity.getType()));
 		buf.writeUuid(entity.getUuid());
-		buf.writeVarInt(entity.getEntityId());
+		buf.writeVarInt(entity.getId());
 		buf.writeDouble(entity.getX());
 		buf.writeDouble(entity.getY());
 		buf.writeDouble(entity.getZ());
-		buf.writeByte(MathHelper.floor(entity.pitch * 256.0F / 360.0F));
-		buf.writeByte(MathHelper.floor(entity.yaw * 256.0F / 360.0F));
+		buf.writeByte(MathHelper.floor(entity.getPitch() * 256.0F / 360.0F));
+		buf.writeByte(MathHelper.floor(entity.getYaw() * 256.0F / 360.0F));
 		return ServerPlayNetworking.createS2CPacket(ID, buf);
 	}
 
@@ -54,9 +54,9 @@ public class EntitySpawnPacket {
 			if (entity != null) {
 				entity.updatePosition(x, y, z);
 				entity.updateTrackedPosition(x, y, z);
-				entity.pitch = pitch;
-				entity.yaw = yaw;
-				entity.setEntityId(entityID);
+				entity.setPitch(pitch);
+				entity.setYaw(yaw);
+				entity.setId(entityID);
 				entity.setUuid(entityUUID);
 				ClientWorld clientWorld = MinecraftClient.getInstance().world;
 				clientWorld.addEntity(entityID, entity);

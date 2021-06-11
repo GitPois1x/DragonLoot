@@ -42,25 +42,25 @@ public class DragonTridentItem extends TridentItem {
                         });
                         if (riptideLevel == 0) {
                             DragonTridentEntity tridentEntity = new DragonTridentEntity(world, playerEntity, stack);
-                            tridentEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F,
-                                    2.5F + riptideLevel * 0.5F, 1.0F);
-                            if (playerEntity.abilities.creativeMode) {
+                            tridentEntity.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(),
+                                    0.0F, 2.5F + riptideLevel * 0.5F, 1.0F);
+                            if (playerEntity.isCreative()) {
                                 tridentEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                             }
 
                             world.spawnEntity(tridentEntity);
                             world.playSoundFromEntity(null, tridentEntity, SoundEvents.ITEM_TRIDENT_THROW,
                                     SoundCategory.PLAYERS, 1.0F, 1.0F);
-                            if (!playerEntity.abilities.creativeMode) {
-                                playerEntity.inventory.removeOne(stack);
+                            if (!playerEntity.isCreative()) {
+                                playerEntity.getInventory().removeOne(stack);
                             }
                         }
                     }
 
                     playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
                     if (riptideLevel > 0) {
-                        float f = playerEntity.yaw;
-                        float g = playerEntity.pitch;
+                        float f = playerEntity.getYaw();
+                        float g = playerEntity.getPitch();
                         float h = -MathHelper.sin(f * 0.017453292F) * MathHelper.cos(g * 0.017453292F);
                         float k = -MathHelper.sin(g * 0.017453292F);
                         float l = MathHelper.cos(f * 0.017453292F) * MathHelper.cos(g * 0.017453292F);

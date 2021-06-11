@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin extends Entity {
     super(type, world);
   }
 
-  @Inject(method = "Lnet/minecraft/entity/LivingEntity;initAi()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V", ordinal = 0), cancellable = true)
+  @Inject(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V", ordinal = 0), cancellable = true)
   private void initAiMixin(CallbackInfo info) {
     ItemStack itemStack = ((LivingEntity) (Object) this).getEquippedStack(EquipmentSlot.CHEST);
     boolean bl = this.getFlag(7);

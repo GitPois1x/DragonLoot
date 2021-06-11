@@ -10,7 +10,8 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 
 public class DragonTridentItemRenderer {
-    private static final TridentEntityModel modelTrident = new TridentEntityModel();
+    private static final TridentEntityModel modelTrident = new TridentEntityModel(
+            TridentEntityModel.getTexturedModelData().createModel());
 
     public static void render(ItemStack stack, Mode mode, MatrixStack matrices, VertexConsumerProvider vertexConsumers,
             int light, int overlay) {

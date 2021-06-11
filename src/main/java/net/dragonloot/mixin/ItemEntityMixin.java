@@ -23,7 +23,7 @@ public abstract class ItemEntityMixin extends Entity {
     public void damageMixin(DamageSource source, float amount, CallbackInfoReturnable<Boolean> info) {
         if ((Object) this instanceof ItemEntity) {
             ItemEntity itemStack = (ItemEntity) (Object) this;
-            if (itemStack.getStack().getItem().isIn(TagInit.NOT_DESTROYED_BY_EXPLOSION) && source.isExplosive()) {
+            if (itemStack.getStack().isIn(TagInit.NOT_DESTROYED_BY_EXPLOSION) && source.isExplosive()) {
                 info.setReturnValue(false);
             }
         }

@@ -33,9 +33,9 @@ public class PlayerInventoryMixin {
     }
 
     @Inject(method = "damageArmor", at = @At("HEAD"), cancellable = true)
-    public void damageArmorMixin(DamageSource damageSource, float f, CallbackInfo info) {
+    public void damageArmorMixin(DamageSource damageSource, float amount, int[] slots, CallbackInfo info) {
         ItemStack item = this.armor.get(2);
-        if (f > 0.0F && item.getItem() instanceof DragonArmor
+        if (amount > 0.0F && item.getItem() instanceof DragonArmor
                 && item.isItemEqualIgnoreDamage(new ItemStack(ItemInit.UPGRADED_DRAGON_CHESTPLATE))
                 && item.getDamage() == (item.getMaxDamage() - 1)) {
             this.armor.get(2).decrement(1);
