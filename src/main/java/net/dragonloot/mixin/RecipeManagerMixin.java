@@ -18,8 +18,7 @@ import java.util.Map;
 public class RecipeManagerMixin {
 
     @Inject(method = "apply", at = @At("HEAD"))
-    private void applyMixin(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler,
-            CallbackInfo info) {
+    private void applyMixin(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info) {
         for (Identifier id : RecipeGenerator.RECIPES.keySet()) {
             map.put(id, RecipeGenerator.RECIPES.get(id));
         }

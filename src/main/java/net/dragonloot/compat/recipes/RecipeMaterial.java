@@ -10,8 +10,7 @@ public class RecipeMaterial {
     public String additionType;
     public Identifier output;
 
-    public RecipeMaterial(Identifier baseItem, Identifier additionItem, String baseType, String additionType,
-            Identifier output) {
+    public RecipeMaterial(Identifier baseItem, Identifier additionItem, String baseType, String additionType, Identifier output) {
         this.baseItem = baseItem;
         this.additionItem = additionItem;
         this.baseType = baseType;

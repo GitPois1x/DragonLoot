@@ -47,7 +47,7 @@ public class DragonElytraEntityModel<T extends LivingEntity> extends AnimalModel
             Vec3d vec3d = livingEntity.getVelocity();
             if (vec3d.y < 0.0D) {
                 Vec3d vec3d2 = vec3d.normalize();
-                o = 1.0F - (float)Math.pow(-vec3d2.y, 1.5D);
+                o = 1.0F - (float) Math.pow(-vec3d2.y, 1.5D);
             }
 
             k = o * 0.34906584F + (1.0F - o) * k;
@@ -61,10 +61,10 @@ public class DragonElytraEntityModel<T extends LivingEntity> extends AnimalModel
 
         this.leftWing.pivotY = m;
         if (livingEntity instanceof AbstractClientPlayerEntity) {
-            AbstractClientPlayerEntity abstractClientPlayerEntity = (AbstractClientPlayerEntity)livingEntity;
-            abstractClientPlayerEntity.elytraPitch = (float)((double)abstractClientPlayerEntity.elytraPitch + (double)(k - abstractClientPlayerEntity.elytraPitch) * 0.1D);
-            abstractClientPlayerEntity.elytraYaw = (float)((double)abstractClientPlayerEntity.elytraYaw + (double)(n - abstractClientPlayerEntity.elytraYaw) * 0.1D);
-            abstractClientPlayerEntity.elytraRoll = (float)((double)abstractClientPlayerEntity.elytraRoll + (double)(l - abstractClientPlayerEntity.elytraRoll) * 0.1D);
+            AbstractClientPlayerEntity abstractClientPlayerEntity = (AbstractClientPlayerEntity) livingEntity;
+            abstractClientPlayerEntity.elytraPitch = (float) ((double) abstractClientPlayerEntity.elytraPitch + (double) (k - abstractClientPlayerEntity.elytraPitch) * 0.1D);
+            abstractClientPlayerEntity.elytraYaw = (float) ((double) abstractClientPlayerEntity.elytraYaw + (double) (n - abstractClientPlayerEntity.elytraYaw) * 0.1D);
+            abstractClientPlayerEntity.elytraRoll = (float) ((double) abstractClientPlayerEntity.elytraRoll + (double) (l - abstractClientPlayerEntity.elytraRoll) * 0.1D);
             this.leftWing.pitch = abstractClientPlayerEntity.elytraPitch;
             this.leftWing.yaw = abstractClientPlayerEntity.elytraYaw;
             this.leftWing.roll = abstractClientPlayerEntity.elytraRoll;

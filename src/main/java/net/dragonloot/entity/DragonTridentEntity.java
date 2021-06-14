@@ -80,8 +80,7 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
                 this.discard();
             } else if (i > 0) {
                 this.setNoClip(true);
-                Vec3d vec3d = new Vec3d(entity.getX() - this.getX(), entity.getEyeY() - this.getY(),
-                        entity.getZ() - this.getZ());
+                Vec3d vec3d = new Vec3d(entity.getX() - this.getX(), entity.getEyeY() - this.getY(), entity.getZ() - this.getZ());
                 this.setPos(this.getX(), this.getY() + vec3d.y * 0.015D * (double) i, this.getZ());
                 if (this.world.isClient) {
                     this.lastRenderY = this.getY();
@@ -156,14 +155,12 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
 
         this.setVelocity(this.getVelocity().multiply(-0.01D, -0.1D, -0.01D));
         float g = 1.0F;
-        if (this.world instanceof ServerWorld && this.world.isThundering()
-                && EnchantmentHelper.hasChanneling(this.tridentStack)) {
+        if (this.world instanceof ServerWorld && this.world.isThundering() && EnchantmentHelper.hasChanneling(this.tridentStack)) {
             BlockPos blockPos = entity.getBlockPos();
             if (this.world.isSkyVisible(blockPos)) {
                 LightningEntity lightningEntity = (LightningEntity) EntityType.LIGHTNING_BOLT.create(this.world);
                 lightningEntity.refreshPositionAfterTeleport(Vec3d.ofBottomCenter(blockPos));
-                lightningEntity
-                        .setChanneler(entity2 instanceof ServerPlayerEntity ? (ServerPlayerEntity) entity2 : null);
+                lightningEntity.setChanneler(entity2 instanceof ServerPlayerEntity ? (ServerPlayerEntity) entity2 : null);
                 this.world.spawnEntity(lightningEntity);
                 soundEvent = SoundEvents.ITEM_TRIDENT_THUNDER;
                 g = 5.0F;

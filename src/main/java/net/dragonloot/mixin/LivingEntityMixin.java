@@ -16,22 +16,22 @@ import net.minecraft.world.World;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin extends Entity {
-  @Shadow
-  protected int roll;
+    @Shadow
+    protected int roll;
 
-  public LivingEntityMixin(EntityType<?> type, World world) {
-    super(type, world);
-  }
-
-  @Inject(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V", ordinal = 0), cancellable = true)
-  private void initAiMixin(CallbackInfo info) {
-    ItemStack itemStack = ((LivingEntity) (Object) this).getEquippedStack(EquipmentSlot.CHEST);
-    boolean bl = this.getFlag(7);
-    if (bl && !this.onGround && !this.hasVehicle() && itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
-      this.setFlag(7, true);
-      info.cancel();
+    public LivingEntityMixin(EntityType<?> type, World world) {
+        super(type, world);
     }
 
-  }
+    @Inject(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V", ordinal = 0), cancellable = true)
+    private void initAiMixin(CallbackInfo info) {
+        ItemStack itemStack = ((LivingEntity) (Object) this).getEquippedStack(EquipmentSlot.CHEST);
+        boolean bl = this.getFlag(7);
+        if (bl && !this.onGround && !this.hasVehicle() && itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
+            this.setFlag(7, true);
+            info.cancel();
+        }
+
+    }
 
 }

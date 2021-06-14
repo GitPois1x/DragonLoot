@@ -19,9 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(CrossbowItem.class)
 public class CrossbowItemMixin {
     @Inject(method = "createArrow", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
-    private static void createArrow(World world, LivingEntity entity, ItemStack crossbow, ItemStack arrow,
-            CallbackInfoReturnable<PersistentProjectileEntity> cir, ArrowItem arrowItem,
-            PersistentProjectileEntity persistentProjectileEntity) {
+    private static void createArrow(World world, LivingEntity entity, ItemStack crossbow, ItemStack arrow, CallbackInfoReturnable<PersistentProjectileEntity> cir, ArrowItem arrowItem, PersistentProjectileEntity persistentProjectileEntity) {
         if (crossbow.getItem() != ItemInit.DRAGON_CROSSBOW_ITEM) {
             persistentProjectileEntity.setDamage(persistentProjectileEntity.getDamage() * 1.25f + 1f);
             cir.setReturnValue(persistentProjectileEntity);

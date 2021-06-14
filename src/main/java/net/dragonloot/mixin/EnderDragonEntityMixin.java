@@ -21,38 +21,37 @@ import net.minecraft.world.World;
 
 @Mixin(EnderDragonEntity.class)
 public abstract class EnderDragonEntityMixin extends MobEntity {
-  @Shadow
-  public int ticksSinceDeath;
+    @Shadow
+    public int ticksSinceDeath;
 
-  public EnderDragonEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
-    super(entityType, world);
-  }
-
-  @Inject(method = "updatePostDeath", at = @At("TAIL"))
-  public void updatePostDeathMixin(CallbackInfo info) {
-    if (!this.world.isClient && this.ticksSinceDeath == 180) {
-      Box box = new Box(this.getBlockPos());
-      List<PlayerEntity> list = world.getEntitiesByClass(PlayerEntity.class, box.expand(128D),
-          EntityPredicates.EXCEPT_SPECTATOR);
-      int dragonscalebonus = 0;
-      for (int i = 0; i < list.size(); ++i) {
-        PlayerEntity entity = (PlayerEntity) list.get(i);
-        if (entity instanceof PlayerEntity) {
-          int dropBonus = ConfigInit.CONFIG.additional_scales_per_player;
-          dragonscalebonus = dragonscalebonus + dropBonus;
-        }
-      }
-
-      for (int i = 0; i < (ConfigInit.CONFIG.scale_minimum_drop_amount); i++) {
-        this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
-      }
-      for (int u = 0; u < dragonscalebonus; u++) {
-        if (this.world.random.nextFloat() <= ConfigInit.CONFIG.additional_scale_drop_chance) {
-          this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
-        }
-
-      }
+    public EnderDragonEntityMixin(EntityType<? extends MobEntity> entityType, World world) {
+        super(entityType, world);
     }
-  }
+
+    @Inject(method = "updatePostDeath", at = @At("TAIL"))
+    public void updatePostDeathMixin(CallbackInfo info) {
+        if (!this.world.isClient && this.ticksSinceDeath == 180) {
+            Box box = new Box(this.getBlockPos());
+            List<PlayerEntity> list = world.getEntitiesByClass(PlayerEntity.class, box.expand(128D), EntityPredicates.EXCEPT_SPECTATOR);
+            int dragonscalebonus = 0;
+            for (int i = 0; i < list.size(); ++i) {
+                PlayerEntity entity = (PlayerEntity) list.get(i);
+                if (entity instanceof PlayerEntity) {
+                    int dropBonus = ConfigInit.CONFIG.additional_scales_per_player;
+                    dragonscalebonus = dragonscalebonus + dropBonus;
+                }
+            }
+
+            for (int i = 0; i < (ConfigInit.CONFIG.scale_minimum_drop_amount); i++) {
+                this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
+            }
+            for (int u = 0; u < dragonscalebonus; u++) {
+                if (this.world.random.nextFloat() <= ConfigInit.CONFIG.additional_scale_drop_chance) {
+                    this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
+                }
+
+            }
+        }
+    }
 
 }

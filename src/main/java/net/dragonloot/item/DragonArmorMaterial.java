@@ -25,9 +25,7 @@ public class DragonArmorMaterial implements ArmorMaterial {
     }
 
     private static final int[] BASE_DURABILITY = new int[] { 28, 32, 35, 26 };
-    private static final int[] PROTECTION_AMOUNTS = new int[] { ConfigInit.CONFIG.dragon_armor_protection_boots,
-            ConfigInit.CONFIG.dragon_armor_protection_leggings, ConfigInit.CONFIG.dragon_armor_protection_chest,
-            ConfigInit.CONFIG.dragon_armor_protection_helmet };
+    private static final int[] PROTECTION_AMOUNTS = new int[] { ConfigInit.CONFIG.dragon_armor_protection_boots, ConfigInit.CONFIG.dragon_armor_protection_leggings, ConfigInit.CONFIG.dragon_armor_protection_chest, ConfigInit.CONFIG.dragon_armor_protection_helmet };
 
     @Override
     public int getDurability(EquipmentSlot equipmentSlot) {

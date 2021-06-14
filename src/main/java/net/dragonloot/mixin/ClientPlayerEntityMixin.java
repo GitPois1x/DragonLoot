@@ -24,28 +24,27 @@ import net.minecraft.network.packet.c2s.play.ClientCommandC2SPacket;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity {
-  @Shadow
-  public final ClientPlayNetworkHandler networkHandler;
-  @Shadow
-  protected final MinecraftClient client;
-  @Shadow
-  public Input input;
-  @Shadow
-  private int ticksToNextAutojump;
+    @Shadow
+    public final ClientPlayNetworkHandler networkHandler;
+    @Shadow
+    protected final MinecraftClient client;
+    @Shadow
+    public Input input;
+    @Shadow
+    private int ticksToNextAutojump;
 
-  public ClientPlayerEntityMixin(MinecraftClient client, ClientWorld world, GameProfile profile,
-      ClientPlayNetworkHandler networkHandler) {
-    super(world, profile);
-    this.networkHandler = networkHandler;
-    this.client = client;
-  }
-
-  @Inject(method = "Lnet/minecraft/client/network/ClientPlayerEntity;tickMovement()V", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
-  public void tickMovementMixin(CallbackInfo info) {
-    ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
-    if (itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE && this.checkFallFlying()) {
-      this.networkHandler.sendPacket(new ClientCommandC2SPacket(this, ClientCommandC2SPacket.Mode.START_FALL_FLYING));
+    public ClientPlayerEntityMixin(MinecraftClient client, ClientWorld world, GameProfile profile, ClientPlayNetworkHandler networkHandler) {
+        super(world, profile);
+        this.networkHandler = networkHandler;
+        this.client = client;
     }
-  }
+
+    @Inject(method = "Lnet/minecraft/client/network/ClientPlayerEntity;tickMovement()V", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
+    public void tickMovementMixin(CallbackInfo info) {
+        ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
+        if (itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE && this.checkFallFlying()) {
+            this.networkHandler.sendPacket(new ClientCommandC2SPacket(this, ClientCommandC2SPacket.Mode.START_FALL_FLYING));
+        }
+    }
 
 }

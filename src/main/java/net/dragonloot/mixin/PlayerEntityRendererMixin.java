@@ -19,11 +19,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class PlayerEntityRendererMixin {
 
     @Inject(method = "getArmPose", at = @At("HEAD"), cancellable = true)
-    private static void getArmPose(AbstractClientPlayerEntity abstractClientPlayerEntity, Hand hand,
-            CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
+    private static void getArmPose(AbstractClientPlayerEntity abstractClientPlayerEntity, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir) {
         ItemStack itemStack = abstractClientPlayerEntity.getStackInHand(hand);
-        if (!abstractClientPlayerEntity.handSwinging && itemStack.getItem() == ItemInit.DRAGON_CROSSBOW_ITEM
-                && CrossbowItem.isCharged(itemStack)) {
+        if (!abstractClientPlayerEntity.handSwinging && itemStack.getItem() == ItemInit.DRAGON_CROSSBOW_ITEM && CrossbowItem.isCharged(itemStack)) {
             cir.setReturnValue(BipedEntityModel.ArmPose.CROSSBOW_HOLD);
         }
     }

@@ -12,8 +12,7 @@ public class RecipeGenerator {
     public static HashMap<String, RecipeMaterial> SMITHING_RECIPES = new HashMap<>();
     public static HashMap<Identifier, JsonObject> RECIPES = new HashMap<>();
 
-    public static JsonObject generateJson(Identifier base, Identifier addition, String baseType, String additionType,
-            Identifier output) {
+    public static JsonObject generateJson(Identifier base, Identifier addition, String baseType, String additionType, Identifier output) {
         JsonObject json = new JsonObject();
         json.addProperty("type", "minecraft:smithing");
 
@@ -35,8 +34,7 @@ public class RecipeGenerator {
     public static void addRecipes() {
         for (String key : SMITHING_RECIPES.keySet()) {
             RecipeMaterial material = SMITHING_RECIPES.get(key);
-            RECIPES.put(DragonLootMain.ID(key), generateJson(material.baseItem, material.additionItem,
-                    material.baseType, material.additionType, material.output));
+            RECIPES.put(DragonLootMain.ID(key), generateJson(material.baseItem, material.additionItem, material.baseType, material.additionType, material.output));
         }
     }
 }

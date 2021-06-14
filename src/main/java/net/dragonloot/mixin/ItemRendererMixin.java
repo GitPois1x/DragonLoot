@@ -40,16 +40,12 @@ public abstract class ItemRendererMixin {
     }
 
     @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "HEAD"), cancellable = true)
-    public void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded,
-            MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model,
-            CallbackInfo info) {
+    public void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo info) {
         if (!stack.isEmpty() && stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM) {
             matrices.push();
-            boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND
-                    || renderMode == ModelTransformation.Mode.FIXED;
+            boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND || renderMode == ModelTransformation.Mode.FIXED;
             if (stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && bl) {
-                model = ((ItemRendererInterface) this).getModelsInvoker().getModelManager()
-                        .getModel(new ModelIdentifier("dragonloot" + ":dragon_trident#inventory"));
+                model = ((ItemRendererInterface) this).getModelsInvoker().getModelManager().getModel(new ModelIdentifier("dragonloot" + ":dragon_trident#inventory"));
             }
 
             model.getTransformation().getTransformation(renderMode).apply(leftHanded, matrices);
@@ -59,11 +55,9 @@ public abstract class ItemRendererMixin {
             } else {
                 RenderLayer renderLayer = RenderLayers.getItemLayer(stack, true);
                 VertexConsumer vertexConsumer4;
-                vertexConsumer4 = ItemRenderer.getDirectItemGlintConsumer(vertexConsumers, renderLayer, true,
-                        stack.hasGlint());
+                vertexConsumer4 = ItemRenderer.getDirectItemGlintConsumer(vertexConsumers, renderLayer, true, stack.hasGlint());
 
-                ((ItemRendererInterface) this).renderBakedItemModelInvoker(model, stack, light, overlay, matrices,
-                        vertexConsumer4);
+                ((ItemRendererInterface) this).renderBakedItemModelInvoker(model, stack, light, overlay, matrices, vertexConsumer4);
             }
 
             matrices.pop();
@@ -72,13 +66,11 @@ public abstract class ItemRendererMixin {
     }
 
     @Inject(method = "getHeldItemModel", at = @At(value = "HEAD"), cancellable = true)
-    public void getHeldItemModelMixin(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity, int seed,
-            CallbackInfoReturnable<BakedModel> info) {
+    public void getHeldItemModelMixin(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity, int seed, CallbackInfoReturnable<BakedModel> info) {
         Item item = stack.getItem();
         BakedModel bakedModel2;
         if (item == ItemInit.DRAGON_TRIDENT_ITEM) {
-            bakedModel2 = this.models.getModelManager()
-                    .getModel(new ModelIdentifier("minecraft:trident_in_hand#inventory"));
+            bakedModel2 = this.models.getModelManager().getModel(new ModelIdentifier("minecraft:trident_in_hand#inventory"));
             ClientWorld clientWorld = world instanceof ClientWorld ? (ClientWorld) world : null;
             BakedModel bakedModel3 = bakedModel2.getOverrides().apply(bakedModel2, stack, clientWorld, entity, seed);
             info.setReturnValue(bakedModel3 == null ? this.models.getModelManager().getMissingModel() : bakedModel3);

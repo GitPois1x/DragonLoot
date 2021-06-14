@@ -9,19 +9,19 @@ import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
 @Config.Gui.Background("minecraft:textures/block/stone.png")
 public class DragonLootConfig implements ConfigData {
 
-  public int scale_minimum_drop_amount = 3;
-  public int additional_scales_per_player = 2;
-  @Comment("0.8F = 80%")
-  public float additional_scale_drop_chance = 0.8F;
-  @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
-  public int dragon_armor_protection_helmet = 7;
-  @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
-  public int dragon_armor_protection_chest = 10;
-  @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
-  public int dragon_armor_protection_leggings = 9;
-  @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
-  public int dragon_armor_protection_boots = 7;
-  public int dragon_armor_durability_multiplier = 37;
-  public int dragon_item_durability_multiplier = 37;
-  public float dragon_item_base_damage = 5F;
+    public int scale_minimum_drop_amount = 3;
+    public int additional_scales_per_player = 2;
+    @Comment("0.8F = 80%")
+    public float additional_scale_drop_chance = 0.8F;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
+    public int dragon_armor_protection_helmet = 7;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
+    public int dragon_armor_protection_chest = 10;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
+    public int dragon_armor_protection_leggings = 9;
+    @ConfigEntry.BoundedDiscrete(min = 0, max = 20)
+    public int dragon_armor_protection_boots = 7;
+    public int dragon_armor_durability_multiplier = 37;
+    public int dragon_item_durability_multiplier = 37;
+    public float dragon_item_base_damage = 5F;
 }

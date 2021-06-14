@@ -35,16 +35,12 @@ public class PlayerInventoryMixin {
     @Inject(method = "damageArmor", at = @At("HEAD"), cancellable = true)
     public void damageArmorMixin(DamageSource damageSource, float amount, int[] slots, CallbackInfo info) {
         ItemStack item = this.armor.get(2);
-        if (amount > 0.0F && item.getItem() instanceof DragonArmor
-                && item.isItemEqualIgnoreDamage(new ItemStack(ItemInit.UPGRADED_DRAGON_CHESTPLATE))
-                && item.getDamage() == (item.getMaxDamage() - 1)) {
+        if (amount > 0.0F && item.getItem() instanceof DragonArmor && item.isItemEqualIgnoreDamage(new ItemStack(ItemInit.UPGRADED_DRAGON_CHESTPLATE)) && item.getDamage() == (item.getMaxDamage() - 1)) {
             this.armor.get(2).decrement(1);
             this.armor.set(2, new ItemStack(Items.ELYTRA));
             this.armor.get(2).setDamage(Items.ELYTRA.getMaxDamage());
             if (!this.player.isSilent()) {
-                this.player.world.playSound(this.player.getX(), this.player.getY(), this.player.getZ(),
-                        SoundEvents.ENTITY_ITEM_BREAK, this.player.getSoundCategory(), 0.8F,
-                        0.8F + this.player.world.random.nextFloat() * 0.4F, false);
+                this.player.world.playSound(this.player.getX(), this.player.getY(), this.player.getZ(), SoundEvents.ENTITY_ITEM_BREAK, this.player.getSoundCategory(), 0.8F, 0.8F + this.player.world.random.nextFloat() * 0.4F, false);
             }
         }
     }
