@@ -55,7 +55,7 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
             }
 
             matrixStack.push();
-            matrixStack.translate(0.0D, 0.0D, 0.25D);
+            matrixStack.translate(0.0D, 0.0D, 0.02D);
             this.getContextModel().copyStateTo(this.dragonElytraModel);
             this.dragonElytraModel.setAngles(livingEntity, f, g, j, k, l);
             VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, RenderLayer.getArmorCutoutNoCull(identifier4), false, itemStack.hasGlint());
