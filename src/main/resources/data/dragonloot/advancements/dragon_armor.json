@@ -25,16 +25,24 @@
             "conditions": {
                 "items": [
                     {
-                        "item": "dragonloot:dragon_helmet"
+                        "items": [
+                            "dragonloot:dragon_helmet"
+                        ]
                     },
                     {
-                        "item": "dragonloot:dragon_chestplate"
+                        "items": [
+                            "dragonloot:dragon_chestplate"
+                        ]
                     },
                     {
-                        "item": "dragonloot:dragon_leggings"
+                        "items": [
+                            "dragonloot:dragon_leggings"
+                        ]
                     },
                     {
-                        "item": "dragonloot:dragon_boots"
+                        "items": [
+                            "dragonloot:dragon_boots"
+                        ]
                     }
                 ]
             }
