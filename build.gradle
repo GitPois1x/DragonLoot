@@ -18,7 +18,7 @@ repositories {
 	maven { url "https://maven.shedaniel.me/" }
 	maven { url 'https://jitpack.io' }
 	maven { url "https://www.cursemaven.com" }
-	maven { url "https://dl.bintray.com/oroarmor/oroarmor" }
+	//maven { url "https://dl.bintray.com/oroarmor/oroarmor" }
 	maven { url "https://maven.terraformersmc.com/" }
 }
 
