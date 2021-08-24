@@ -48,4 +48,11 @@ public class DragonToolMaterial implements ToolMaterial {
     public Ingredient getRepairIngredient() {
         return Ingredient.ofItems(ItemInit.DRAGON_SCALE_ITEM);
     }
+
+    // For LevelZ compat
+    @Override
+    public String toString() {
+        return "DRAGON";
+    }
+
 }
