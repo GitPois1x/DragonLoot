@@ -65,7 +65,7 @@ public abstract class ItemRendererMixin {
         }
     }
 
-    @Inject(method = "getHeldItemModel", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "getModel", at = @At(value = "HEAD"), cancellable = true)
     public void getHeldItemModelMixin(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity, int seed, CallbackInfoReturnable<BakedModel> info) {
         Item item = stack.getItem();
         BakedModel bakedModel2;

@@ -42,7 +42,7 @@ public class DragonTridentItem extends TridentItem {
                         });
                         if (riptideLevel == 0) {
                             DragonTridentEntity tridentEntity = new DragonTridentEntity(world, playerEntity, stack);
-                            tridentEntity.setProperties(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 2.5F + riptideLevel * 0.5F, 1.0F);
+                            tridentEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 2.5F + riptideLevel * 0.5F, 1.0F);
                             if (playerEntity.isCreative()) {
                                 tridentEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                             }

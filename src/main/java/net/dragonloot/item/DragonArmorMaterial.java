@@ -53,7 +53,6 @@ public class DragonArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    @Environment(EnvType.CLIENT)
     public String getName() {
         return "dragon";
     }
