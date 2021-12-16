@@ -24,16 +24,16 @@
 
   "text.autoconfig.dragonloot.title": "龙战利品配置",
   "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "龙鳞最低掉落数量",
-  "text.autoconfig.dragonloot.option.additional_scales_per_player": "每个玩家额外龙鳞",
+  "text.autoconfig.dragonloot.option.additional_scales_per_player": "每位玩家额外龙鳞",
   "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "额外龙鳞掉落几率"
    "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "龙鳞头盔护甲值",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "龙鳞胸甲护甲值",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "龙鳞护腿护甲值",
   "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "龙鳞靴子护甲值",
   "text.autoconfig.dragonloot.option.dragon_armor_durability_multiplier": "龙鳞装甲耐久度倍数",
-  "text.autoconfig.dragonloot.option.dragon_item_durability_multiplier": "龙道具耐久度倍数",
-  "text.autoconfig.dragonloot.option.dragon_item_base_damage": "龙道具基础伤害",
+  "text.autoconfig.dragonloot.option.dragon_item_durability_multiplier": "龙物品耐久度倍数",
+  "text.autoconfig.dragonloot.option.dragon_item_base_damage": "龙物品基础伤害",
 
-  "dragonloot.advancements.dragon_armor.title": "末影龙的龙鳞",
-  "dragonloot.advancements.dragon_armor.description": "全套龙鳞装甲"
+  "dragonloot.advancements.dragon_armor.title": "龙鳞铸造",
+  "dragonloot.advancements.dragon_armor.description": "打造全套龙鳞装甲"
 }
