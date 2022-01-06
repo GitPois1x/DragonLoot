@@ -1,4 +1,4 @@
-package net.dragonloot.mixin;
+package net.dragonloot.mixin.client;
 
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -42,43 +42,56 @@ public class HeldItemRendererMixin {
 
     // To do: Crossbow render fix
 
-//    @ModifyVariable(method = "renderItem(FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;Lnet/minecraft/client/network/ClientPlayerEntity;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/util/math/MatrixStack;multiply(Lnet/minecraft/util/math/Quaternion;)V"), index = -1,print = true)
-//    private boolean renderItemMixinOne(boolean original) {
-//        if (client.player.getOffHandStack().getItem() == ItemInit.DRAGON_CROSSBOW_ITEM) {
-//            return false;
-//        } else
-//            return original;
-//    }
-//
-//    @ModifyVariable(method = "Lnet/minecraft/client/render/item/HeldItemRenderer;renderItem(FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;Lnet/minecraft/client/network/ClientPlayerEntity;I)V", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"), ordinal = 0)
-//    private boolean renderItemMixinTwo(boolean original) {
-//        if (client.player.getOffHandStack().getItem() == ItemInit.DRAGON_CROSSBOW_ITEM
-//                && DragonCrossbowItem.isCharged(client.player.getOffHandStack())) {
-//            return !client.player.getMainHandStack().isEmpty();
-//        } else
-//            return original;
-//    }
+    // @ModifyVariable(method =
+    // "renderItem(FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;Lnet/minecraft/client/network/ClientPlayerEntity;I)V",
+    // at = @At(value = "INVOKE", target =
+    // "Lnet/minecraft/client/util/math/MatrixStack;multiply(Lnet/minecraft/util/math/Quaternion;)V"),
+    // index = -1,print = true)
+    // private boolean renderItemMixinOne(boolean original) {
+    // if (client.player.getOffHandStack().getItem() ==
+    // ItemInit.DRAGON_CROSSBOW_ITEM) {
+    // return false;
+    // } else
+    // return original;
+    // }
+    //
+    // @ModifyVariable(method =
+    // "Lnet/minecraft/client/render/item/HeldItemRenderer;renderItem(FLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider$Immediate;Lnet/minecraft/client/network/ClientPlayerEntity;I)V",
+    // at = @At(value = "INVOKE_ASSIGN", target =
+    // "Lnet/minecraft/client/network/ClientPlayerEntity;getMainHandStack()Lnet/minecraft/item/ItemStack;"),
+    // ordinal = 0)
+    // private boolean renderItemMixinTwo(boolean original) {
+    // if (client.player.getOffHandStack().getItem() ==
+    // ItemInit.DRAGON_CROSSBOW_ITEM
+    // && DragonCrossbowItem.isCharged(client.player.getOffHandStack())) {
+    // return !client.player.getMainHandStack().isEmpty();
+    // } else
+    // return original;
+    // }
 
-//    @ModifyVariable(method = "getHandRenderType", at = @At(value = "RETURN"), index = -1,print = true)
-//    private static void getHandRenderTypeMixin(ClientPlayerEntity player, CallbackInfoReturnable<HeldItemRenderer> info) {
-//        HeldItemRenderer.HandRenderType.RENDER_BOTH_HANDS;
-////        ItemStack itemStack = player.getMainHandStack();
-////        ItemStack itemStack2 = player.getOffHandStack();
-////        boolean bl = itemStack.isOf(Items.BOW) || itemStack2.isOf(Items.BOW);
-////        boolean bl2 = itemStack.isOf(Items.CROSSBOW) || itemStack2.isOf(Items.CROSSBOW);
-////        if (!bl && !bl2) {
-////            return HeldItemRenderer.HandRenderType.RENDER_BOTH_HANDS;
-////        } else if (player.isUsingItem()) {
-////            return getUsingItemHandRenderType(player);
-////        } else {
-////            return isChargedCrossbow(itemStack) ? HeldItemRenderer.HandRenderType.RENDER_MAIN_HAND_ONLY : HeldItemRenderer.HandRenderType.RENDER_BOTH_HANDS;
-////        }
-//    }
+    // @ModifyVariable(method = "getHandRenderType", at = @At(value = "RETURN"),
+    // index = -1,print = true)
+    // private static void getHandRenderTypeMixin(ClientPlayerEntity player,
+    // CallbackInfoReturnable<HeldItemRenderer> info) {
+    // HeldItemRenderer.HandRenderType.RENDER_BOTH_HANDS;
+    //// ItemStack itemStack = player.getMainHandStack();
+    //// ItemStack itemStack2 = player.getOffHandStack();
+    //// boolean bl = itemStack.isOf(Items.BOW) || itemStack2.isOf(Items.BOW);
+    //// boolean bl2 = itemStack.isOf(Items.CROSSBOW) ||
+    // itemStack2.isOf(Items.CROSSBOW);
+    //// if (!bl && !bl2) {
+    //// return HeldItemRenderer.HandRenderType.RENDER_BOTH_HANDS;
+    //// } else if (player.isUsingItem()) {
+    //// return getUsingItemHandRenderType(player);
+    //// } else {
+    //// return isChargedCrossbow(itemStack) ?
+    // HeldItemRenderer.HandRenderType.RENDER_MAIN_HAND_ONLY :
+    // HeldItemRenderer.HandRenderType.RENDER_BOTH_HANDS;
+    //// }
+    // }
 
     @Inject(method = "renderFirstPersonItem", at = @At(value = "HEAD"), cancellable = true)
-    private void renderFirstPersonItemMixin(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand,
-            float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices,
-            VertexConsumerProvider vertexConsumers, int light, CallbackInfo info) {
+    private void renderFirstPersonItemMixin(AbstractClientPlayerEntity player, float tickDelta, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo info) {
 
         if (item.getItem() == ItemInit.DRAGON_CROSSBOW_ITEM) {
             matrices.push();
@@ -128,16 +141,14 @@ public class HeldItemRendererMixin {
                 }
             }
 
-            this.renderItem(player, item, bl3 ? ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND
-                    : ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
+            this.renderItem(player, item, bl3 ? ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND : ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
             matrices.pop();
             info.cancel();
         }
     }
 
     @Shadow
-    public void renderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode,
-            boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    public void renderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
     }
 
     @Shadow

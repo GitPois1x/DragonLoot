@@ -13,8 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import net.dragonloot.access.DragonAnvilInterface;
 import net.dragonloot.init.BlockInit;
 import net.dragonloot.network.SyncPacket;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -40,7 +38,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
     }
 
     @Inject(method = "canUse", at = @At(value = "HEAD"))
-    public void canUseMixin(BlockState state, CallbackInfoReturnable<Boolean> info) {
+    private void canUseMixin(BlockState state, CallbackInfoReturnable<Boolean> info) {
         if (state.isOf(BlockInit.DRAGON_ANVIL_BLOCK)) {
             isDragonAnvil = true;
             PacketByteBuf data = new PacketByteBuf(Unpooled.buffer());
@@ -51,7 +49,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
     }
 
     @Inject(method = "onTakeOutput", at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/Property;set(I)V"), cancellable = true)
-    public void onTakeOutputMixin(PlayerEntity player, ItemStack stack, CallbackInfo info) {
+    private void onTakeOutputMixin(PlayerEntity player, ItemStack stack, CallbackInfo info) {
         if (isDragonAnvil == true) {
             this.context.run((world, blockPos) -> {
                 this.levelCost.set(0);
@@ -62,15 +60,14 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
     }
 
     @Inject(method = "Lnet/minecraft/screen/AnvilScreenHandler;updateResult()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/Property;set(I)V", shift = At.Shift.AFTER))
-    public void updateResultMixin(CallbackInfo info) {
+    private void updateResultMixin(CallbackInfo info) {
         if (this.levelCost.get() > 30 && isDragonAnvil == true) {
             this.levelCost.set(30);
         }
     }
 
     @Inject(method = "getLevelCost", at = @At(value = "HEAD"), cancellable = true)
-    @Environment(EnvType.CLIENT)
-    public void getLevelCostMixin(CallbackInfoReturnable<Integer> info) {
+    private void getLevelCostMixin(CallbackInfoReturnable<Integer> info) {
         if (this.levelCost.get() > 30 && isDragonAnvil == true) {
             info.setReturnValue(30);
         }

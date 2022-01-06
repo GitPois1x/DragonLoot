@@ -1,4 +1,4 @@
-package net.dragonloot.mixin;
+package net.dragonloot.mixin.client;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -39,7 +39,7 @@ public class HeadFeatureRendererMixin {
     private final DragonHelmetModel dragonHelmetModel = new DragonHelmetModel(DragonHelmetModel.getTexturedModelData().createModel());
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, LivingEntity livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo info) {
+    private void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, LivingEntity livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo info) {
         ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
         if (!(itemStack.isEmpty()) && (itemStack.getItem() == ItemInit.DRAGON_HELMET)) {
             matrixStack.push();

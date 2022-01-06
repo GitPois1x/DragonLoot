@@ -6,7 +6,6 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class DragonHelmetModel extends Model {
-    private final ModelPart root;
     private final ModelPart base;
     private final ModelPart hornLU_r1;
     private final ModelPart hornLD_r1;
@@ -14,7 +13,6 @@ public class DragonHelmetModel extends Model {
 
     public DragonHelmetModel(ModelPart root) {
         super(RenderLayer::getArmorCutoutNoCull);
-        this.root = root;
         this.base = root.getChild("base");
         this.hornLU_r1 = base.getChild("hornLU_r1");
         this.hornLD_r1 = base.getChild("hornLD_r1");

@@ -1,4 +1,4 @@
-package net.dragonloot.mixin;
+package net.dragonloot.mixin.client;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -35,7 +35,7 @@ public abstract class ElytraFeatureRendererMixin<T extends LivingEntity, M exten
     }
 
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
-    public void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo info) {
+    private void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo info) {
         ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.CHEST);
         if (itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
             matrixStack.push();
