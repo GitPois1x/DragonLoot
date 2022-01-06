@@ -13,7 +13,7 @@ import net.minecraft.util.registry.Registry;
 public class ItemInit {
     // Items
     public static final DragonScaleItem DRAGON_SCALE_ITEM = new DragonScaleItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
-    public static final HorseArmorItem DRAGON_HORSE_ARMOR_ITEM = new HorseArmorItem(18, "dragon", new Item.Settings().maxDamage(DragonToolMaterial.getInstance().getDurability()).fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+    public static final HorseArmorItem DRAGON_HORSE_ARMOR_ITEM = new HorseArmorItem(18, "dragon", new Item.Settings().maxCount(1).fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
     // Armor
     public static final ArmorMaterial DRAGON_ARMOR_MATERIAL = DragonArmorMaterial.getInstance();
 
