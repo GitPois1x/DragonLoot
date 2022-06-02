@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 import net.dragonloot.access.DragonAnvilInterface;
 import net.dragonloot.init.BlockInit;
+import net.dragonloot.init.ConfigInit;
 import net.dragonloot.network.SyncPacket;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
@@ -61,14 +62,14 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler imple
 
     @Inject(method = "Lnet/minecraft/screen/AnvilScreenHandler;updateResult()V", at = @At(value = "INVOKE", target = "Lnet/minecraft/screen/Property;set(I)V", shift = At.Shift.AFTER))
     private void updateResultMixin(CallbackInfo info) {
-        if (this.levelCost.get() > 30 && isDragonAnvil == true) {
+        if (this.levelCost.get() > 30 && isDragonAnvil == true && ConfigInit.CONFIG.dragon_anvil_no_cap) {
             this.levelCost.set(30);
         }
     }
 
     @Inject(method = "getLevelCost", at = @At(value = "HEAD"), cancellable = true)
     private void getLevelCostMixin(CallbackInfoReturnable<Integer> info) {
-        if (this.levelCost.get() > 30 && isDragonAnvil == true) {
+        if (this.levelCost.get() > 30 && isDragonAnvil == true && ConfigInit.CONFIG.dragon_anvil_no_cap) {
             info.setReturnValue(30);
         }
     }
