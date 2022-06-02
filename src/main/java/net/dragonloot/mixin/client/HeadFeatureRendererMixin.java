@@ -45,9 +45,9 @@ public class HeadFeatureRendererMixin {
             matrixStack.push();
             matrixStack.scale(this.scaleX, this.scaleY, this.scaleZ);
             ((ModelWithHead) ((HeadFeatureRenderer) (Object) this).getContextModel()).getHead().rotate(matrixStack);
-            matrixStack.translate(0.0D, -1.75D, -0.1D);
-            matrixStack.scale(1.18F, 1.18F, 1.18F);
-            VertexConsumer vertexConsumer = ItemRenderer.getItemGlintConsumer(vertexConsumerProvider, this.dragonHelmetModel.getLayer(new Identifier("dragonloot", "textures/entity/dragon_helmet_3d.png")), false, itemStack.hasGlint());
+            matrixStack.translate(0.0D, -1.75D, 0.0D);
+            matrixStack.scale(1.19F, 1.19F, 1.19F);
+            VertexConsumer vertexConsumer = ItemRenderer.getArmorGlintConsumer(vertexConsumerProvider, this.dragonHelmetModel.getLayer(new Identifier("dragonloot", "textures/entity/dragon_helmet_3d.png")), false, itemStack.hasGlint());
             this.dragonHelmetModel.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
             matrixStack.pop();
             info.cancel();
