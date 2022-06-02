@@ -28,9 +28,9 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
         super(entityType, world);
     }
 
-    @Inject(method = "updatePostDeath", at = @At("TAIL"))
+    @Inject(method = "updatePostDeath", at = @At("HEAD"))
     protected void updatePostDeathMixin(CallbackInfo info) {
-        if (!this.world.isClient && this.ticksSinceDeath == 180) {
+        if (!this.world.isClient && this.ticksSinceDeath == 150) {
             Box box = new Box(this.getBlockPos());
             List<PlayerEntity> list = world.getEntitiesByClass(PlayerEntity.class, box.expand(128D), EntityPredicates.EXCEPT_SPECTATOR);
             int dragonscalebonus = 0;
