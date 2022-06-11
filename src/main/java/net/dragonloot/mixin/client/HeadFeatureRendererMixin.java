@@ -38,6 +38,7 @@ public class HeadFeatureRendererMixin {
 
     private final DragonHelmetModel dragonHelmetModel = new DragonHelmetModel(DragonHelmetModel.getTexturedModelData().createModel());
 
+    @SuppressWarnings("rawtypes")
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     private void render(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, LivingEntity livingEntity, float f, float g, float h, float j, float k, float l, CallbackInfo info) {
         ItemStack itemStack = livingEntity.getEquippedStack(EquipmentSlot.HEAD);
