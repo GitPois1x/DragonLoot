@@ -1,4 +1,4 @@
-package net.dragonloot.mixin;
+package net.dragonloot.mixin.client;
 
 import com.mojang.authlib.GameProfile;
 
@@ -40,7 +40,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     }
 
     @Inject(method = "Lnet/minecraft/client/network/ClientPlayerEntity;tickMovement()V", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/network/ClientPlayerEntity;getEquippedStack(Lnet/minecraft/entity/EquipmentSlot;)Lnet/minecraft/item/ItemStack;"))
-    public void tickMovementMixin(CallbackInfo info) {
+    private void tickMovementMixin(CallbackInfo info) {
         ItemStack itemStack = this.getEquippedStack(EquipmentSlot.CHEST);
         if (itemStack.getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE && this.checkFallFlying()) {
             this.networkHandler.sendPacket(new ClientCommandC2SPacket(this, ClientCommandC2SPacket.Mode.START_FALL_FLYING));

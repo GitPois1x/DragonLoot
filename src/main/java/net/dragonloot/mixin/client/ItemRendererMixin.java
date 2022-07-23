@@ -1,4 +1,4 @@
-package net.dragonloot.mixin;
+package net.dragonloot.mixin.client;
 
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.dragonloot.init.ItemInit;
 import net.dragonloot.item.render.DragonTridentItemRenderer;
+import net.dragonloot.mixin.access.ItemRendererAccess;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.EnvType;
 import net.minecraft.client.render.RenderLayer;
@@ -40,12 +41,12 @@ public abstract class ItemRendererMixin {
     }
 
     @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "HEAD"), cancellable = true)
-    public void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo info) {
+    private void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo info) {
         if (!stack.isEmpty() && stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM) {
             matrices.push();
             boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND || renderMode == ModelTransformation.Mode.FIXED;
             if (stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && bl) {
-                model = ((ItemRendererInterface) this).getModelsInvoker().getModelManager().getModel(new ModelIdentifier("dragonloot" + ":dragon_trident#inventory"));
+                model = ((ItemRendererAccess) this).getModelsInvoker().getModelManager().getModel(new ModelIdentifier("dragonloot" + ":dragon_trident#inventory"));
             }
 
             model.getTransformation().getTransformation(renderMode).apply(leftHanded, matrices);
@@ -57,7 +58,7 @@ public abstract class ItemRendererMixin {
                 VertexConsumer vertexConsumer4;
                 vertexConsumer4 = ItemRenderer.getDirectItemGlintConsumer(vertexConsumers, renderLayer, true, stack.hasGlint());
 
-                ((ItemRendererInterface) this).renderBakedItemModelInvoker(model, stack, light, overlay, matrices, vertexConsumer4);
+                ((ItemRendererAccess) this).renderBakedItemModelInvoker(model, stack, light, overlay, matrices, vertexConsumer4);
             }
 
             matrices.pop();
@@ -65,7 +66,7 @@ public abstract class ItemRendererMixin {
         }
     }
 
-    @Inject(method = "getHeldItemModel", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "getModel", at = @At(value = "HEAD"), cancellable = true)
     public void getHeldItemModelMixin(ItemStack stack, @Nullable World world, @Nullable LivingEntity entity, int seed, CallbackInfoReturnable<BakedModel> info) {
         Item item = stack.getItem();
         BakedModel bakedModel2;

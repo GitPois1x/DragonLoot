@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.dragonloot.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AnvilBlockMixin",
     "AnvilScreenHandlerMixin",
@@ -16,14 +16,14 @@
     "RecipeManagerMixin"
   ],
   "client": [
-    "ClientPlayerEntityMixin",
-    "ElytraFeatureRendererMixin",
-    "HeadFeatureRendererMixin",
-    "PlayerEntityRendererMixin",
-    "AbstractClientPlayerEntityMixin",
-    "ItemRendererMixin",
-    "ItemRendererInterface",
-    "HeldItemRendererMixin"
+    "client.ClientPlayerEntityMixin",
+    "client.ElytraFeatureRendererMixin",
+    "client.HeadFeatureRendererMixin",
+    "client.PlayerEntityRendererMixin",
+    "client.AbstractClientPlayerEntityMixin",
+    "client.ItemRendererMixin",
+    "client.HeldItemRendererMixin",
+    "access.ItemRendererAccess"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.At;
 
 import net.dragonloot.init.ItemInit;
-import net.dragonloot.item.DragonArmor;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -33,9 +32,9 @@ public class PlayerInventoryMixin {
     }
 
     @Inject(method = "damageArmor", at = @At("HEAD"), cancellable = true)
-    public void damageArmorMixin(DamageSource damageSource, float amount, int[] slots, CallbackInfo info) {
+    private void damageArmorMixin(DamageSource damageSource, float amount, int[] slots, CallbackInfo info) {
         ItemStack item = this.armor.get(2);
-        if (amount > 0.0F && item.getItem() instanceof DragonArmor && item.isItemEqualIgnoreDamage(new ItemStack(ItemInit.UPGRADED_DRAGON_CHESTPLATE)) && item.getDamage() == (item.getMaxDamage() - 1)) {
+        if (amount > 0.0F && item.getItem().equals(ItemInit.UPGRADED_DRAGON_CHESTPLATE) && item.getDamage() == (item.getMaxDamage() - 1)) {
             this.armor.get(2).decrement(1);
             this.armor.set(2, new ItemStack(Items.ELYTRA));
             this.armor.get(2).setDamage(Items.ELYTRA.getMaxDamage());

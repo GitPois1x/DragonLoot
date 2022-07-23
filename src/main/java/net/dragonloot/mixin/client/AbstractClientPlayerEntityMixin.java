@@ -1,4 +1,4 @@
-package net.dragonloot.mixin;
+package net.dragonloot.mixin.client;
 
 import com.mojang.authlib.GameProfile;
 
@@ -26,9 +26,9 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
         super(world, pos, yaw, profile);
     }
 
-    @Inject(method = "getSpeed", at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
-    public void getSpeedMixin(CallbackInfoReturnable<Float> info, float f) {
-        if (this.isUsingItem() && (this.getActiveItem().getItem() == ItemInit.DRAGON_BOW_ITEM)) {
+    @Inject(method = "getFovMultiplier", at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT, cancellable = true)
+    private void getFovMultiplierMixin(CallbackInfoReturnable<Float> info, float f) {
+        if (this.isUsingItem() && this.getActiveItem().getItem().equals(ItemInit.DRAGON_BOW_ITEM)) {
             int i = this.getItemUseTime();
             float g = (float) i / 20.0F;
             if (g > 1.0F) {
@@ -36,7 +36,6 @@ public abstract class AbstractClientPlayerEntityMixin extends PlayerEntity {
             } else {
                 g *= g;
             }
-
             f *= 1.0F - g * 0.15F;
             info.setReturnValue(MathHelper.lerp(MinecraftClient.getInstance().options.fovEffectScale, 1.0F, f));
         }
