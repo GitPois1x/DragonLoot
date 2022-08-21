@@ -37,7 +37,7 @@ public class DragonArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getEnchantability() {
-        return 15;
+        return ConfigInit.CONFIG.dragon_armor_enchantability;
     }
 
     @Override
@@ -57,12 +57,12 @@ public class DragonArmorMaterial implements ArmorMaterial {
 
     @Override
     public float getToughness() {
-        return 3.0F;
+        return ConfigInit.CONFIG.dragon_armor_toughness;
     }
 
     @Override
     public float getKnockbackResistance() {
-        return 1.0F;
+        return ConfigInit.CONFIG.dragon_armor_knockback_resistance;
     }
 
 }

@@ -24,13 +24,13 @@ public class ItemInit {
     public static final Item UPGRADED_DRAGON_CHESTPLATE = new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
     // Tools
-    public static final DragonPickaxeItem DRAGON_PICKAXE_ITEM = new DragonPickaxeItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
-    public static final DragonAxeItem DRAGON_AXE_ITEM = new DragonAxeItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
-    public static final DragonShovelItem DRAGON_SHOVEL_ITEM = new DragonShovelItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
-    public static final DragonHoeItem DRAGON_HOE_ITEM = new DragonHoeItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+    public static final DragonPickaxeItem DRAGON_PICKAXE_ITEM = new DragonPickaxeItem(DragonToolMaterial.getInstance(), 1, -2.8f, new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+    public static final DragonAxeItem DRAGON_AXE_ITEM = new DragonAxeItem(DragonToolMaterial.getInstance(), 5, -3f, new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+    public static final DragonShovelItem DRAGON_SHOVEL_ITEM = new DragonShovelItem(DragonToolMaterial.getInstance(), 1.5f, -3f, new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+    public static final DragonHoeItem DRAGON_HOE_ITEM = new DragonHoeItem(DragonToolMaterial.getInstance(), -4, -2f, new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
 
     // Weapons
-    public static final DragonSwordItem DRAGON_SWORD_ITEM = new DragonSwordItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
+    public static final DragonSwordItem DRAGON_SWORD_ITEM = new DragonSwordItem(DragonToolMaterial.getInstance(), 3, -2.4f, new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));
     public static final DragonBowItem DRAGON_BOW_ITEM = new DragonBowItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP).maxDamage(DragonToolMaterial.getInstance().getDurability()));
     public static final DragonCrossbowItem DRAGON_CROSSBOW_ITEM = new DragonCrossbowItem(new Item.Settings().fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP).maxDamage(DragonToolMaterial.getInstance().getDurability()));
     public static final DragonTridentItem DRAGON_TRIDENT_ITEM = new DragonTridentItem(new Item.Settings().maxDamage(DragonToolMaterial.getInstance().getDurability()).fireproof().group(ItemGroupInit.DRAGON_ITEM_GROUP));

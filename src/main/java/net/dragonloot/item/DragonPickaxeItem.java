@@ -1,11 +1,12 @@
 package net.dragonloot.item;
 
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.ToolMaterial;
 
 public class DragonPickaxeItem extends PickaxeItem {
 
-    public DragonPickaxeItem(Settings settings) {
-        super(DragonToolMaterial.getInstance(), 1, -2.8f, settings);
+    public DragonPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
 
 }

@@ -1,11 +1,12 @@
 package net.dragonloot.item;
 
 import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 
 public class DragonSwordItem extends SwordItem {
 
-    public DragonSwordItem(Settings settings) {
-        super(DragonToolMaterial.getInstance(), 3, -2.4f, settings);
+    public DragonSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+        super(toolMaterial, attackDamage, attackSpeed, settings);
     }
 
 }

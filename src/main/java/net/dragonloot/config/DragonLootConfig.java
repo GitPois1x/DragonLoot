@@ -26,11 +26,19 @@ public class DragonLootConfig implements ConfigData {
     @ConfigEntry.Gui.RequiresRestart
     public int dragon_armor_protection_boots = 7;
     @ConfigEntry.Gui.RequiresRestart
+    public float dragon_armor_toughness = 3.0F;
+    @ConfigEntry.Gui.RequiresRestart
+    public float dragon_armor_knockback_resistance = 1.0F;
+    @ConfigEntry.Gui.RequiresRestart
+    public int dragon_armor_enchantability = 15;
+    @ConfigEntry.Gui.RequiresRestart
     public int dragon_armor_durability_multiplier = 37;
     @ConfigEntry.Gui.RequiresRestart
     public int dragon_item_durability_multiplier = 37;
     @ConfigEntry.Gui.RequiresRestart
     public float dragon_item_base_damage = 5F;
+    @ConfigEntry.Gui.RequiresRestart
+    public int dragon_tool_enchantability = 20;
     @ConfigEntry.Gui.RequiresRestart
     public boolean dragon_anvil_no_cap = true;
 }

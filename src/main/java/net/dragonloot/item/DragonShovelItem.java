@@ -1,11 +1,12 @@
 package net.dragonloot.item;
 
 import net.minecraft.item.ShovelItem;
+import net.minecraft.item.ToolMaterial;
 
 public class DragonShovelItem extends ShovelItem {
 
-    public DragonShovelItem(Settings settings) {
-        super(DragonToolMaterial.getInstance(), 1.5f, -3f, settings);
+    public DragonShovelItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
 
 }

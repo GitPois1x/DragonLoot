@@ -21,6 +21,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class DragonTridentItem extends TridentItem {
+
     public DragonTridentItem(Settings settings) {
         super(settings);
         attributeModifiers.get(EntityAttributes.GENERIC_ATTACK_DAMAGE).forEach(modifier -> {
