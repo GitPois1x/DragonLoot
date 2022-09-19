@@ -1,0 +1,44 @@
+{
+  "block.dragonloot.dragon_anvil": "드래곤 모루",
+  "item.dragonloot.dragon_scale": "드래곤 비늘",
+  
+  "item.dragonloot.dragon_helmet": "드래곤 비늘 헬멧",
+  "item.dragonloot.dragon_chestplate": "드래곤 비늘 흉갑",
+  "item.dragonloot.dragon_leggings": "드래곤 비늘 레깅스",
+  "item.dragonloot.dragon_boots": "드래곤 비늘 부츠",
+  "item.dragonloot.upgraded_dragon_chestplate": "날개 달린 드래곤 비늘 흉갑",
+
+  "item.dragonloot.dragon_pickaxe": "드래곤 곡괭이",
+  "item.dragonloot.dragon_axe": "드래곤 도끼",
+  "item.dragonloot.dragon_shovel": "드래곤 삽",
+  "item.dragonloot.dragon_hoe": "드래곤 괭이",
+  "item.dragonloot.dragon_sword": "드래곤 검",
+  "item.dragonloot.dragon_bow": "드래곤 활",
+  "item.dragonloot.dragon_crossbow": "드래곤 석궁",
+
+  "item.dragonloot.dragon_horse_armor": "드래곤 말 갑옷",
+  "item.dragonloot.dragon_trident": "드래곤 삼지창",
+  "entity.dragonloot.dragon_trident": "드래곤 삼지창",
+
+  "itemGroup.dragonloot.dragonloot": "Dragon Loot",
+
+  "text.autoconfig.dragonloot.title": "DragonLoot 설정",
+  "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "비늘 최소 드랍 개수",
+  "text.autoconfig.dragonloot.option.additional_scales_per_player": "플레이어당 추가 비늘",
+  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "추가 비늘 드롭율",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "드래곤 방어구 헬멧 방어",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "드래곤 방어구 흉갑 방어",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "드래곤 방어구 레깅스 방어",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "드래곤 방어구 부츠 방어",
+  "text.autoconfig.dragonloot.option.dragon_armor_durability_multiplier": "드래곤 방어구 내구도 배율",
+  "text.autoconfig.dragonloot.option.dragon_item_durability_multiplier": "드래곤 아이템 내구도 배율",
+  "text.autoconfig.dragonloot.option.dragon_item_base_damage": "드래곤 아이템 기본 공격력",
+  "text.autoconfig.dragonloot.option.dragon_anvil_no_cap": "드래곤 모루 제한 없음",
+  "text.autoconfig.dragonloot.option.dragon_armor_toughness": "드래곤 방어구 방어 강도",
+  "text.autoconfig.dragonloot.option.dragon_armor_knockback_resistance": "드래곤 방어구 밀치기 저항",
+  "text.autoconfig.dragonloot.option.dragon_armor_enchantability": "드래곤 방어구 마법 부여",
+  "text.autoconfig.dragonloot.option.dragon_tool_enchantability": "드래곤 도구 마법 부여",
+
+  "dragonloot.advancements.dragon_armor.title": "괴수의 비늘을 이용해",
+  "dragonloot.advancements.dragon_armor.description": "드래곤 방어구 모든 세트를 획득하세요."
+}
