@@ -20,15 +20,15 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.HeldItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.math.Vec3f;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.MathHelper;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import net.minecraft.util.math.RotationAxis;
 
+@SuppressWarnings("unused")
 @Environment(EnvType.CLIENT)
 @Mixin(HeldItemRenderer.class)
 public class HeldItemRendererMixin {
@@ -108,9 +108,9 @@ public class HeldItemRendererMixin {
             if (player.isUsingItem() && player.getItemUseTimeLeft() > 0 && player.getActiveHand() == hand) {
                 this.applyEquipOffset(matrices, arm, equipProgress);
                 matrices.translate((double) ((float) i * -0.4785682F), -0.0943870022892952D, 0.05731530860066414D);
-                matrices.multiply(Vec3f.POSITIVE_X.getDegreesQuaternion(-11.935F));
-                matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((float) i * 65.3F));
-                matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion((float) i * -9.785F));
+                matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(-11.935F));
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float) i * 65.3F));
+                matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees((float) i * -9.785F));
                 v = (float) item.getMaxUseTime() - ((float) this.client.player.getItemUseTimeLeft() - tickDelta + 1.0F);
                 w = v / (float) CrossbowItem.getPullTime(item);
 
@@ -127,7 +127,7 @@ public class HeldItemRendererMixin {
 
                 matrices.translate((double) (w * 0.0F), (double) (w * 0.0F), (double) (w * 0.04F));
                 matrices.scale(1.0F, 1.0F, 1.0F + w * 0.2F);
-                matrices.multiply(Vec3f.NEGATIVE_Y.getDegreesQuaternion((float) i * 45.0F));
+                matrices.multiply(RotationAxis.NEGATIVE_Y.rotationDegrees((float) i * 45.0F));
             } else {
                 v = -0.4F * MathHelper.sin(MathHelper.sqrt(swingProgress) * 3.1415927F);
                 w = 0.2F * MathHelper.sin(MathHelper.sqrt(swingProgress) * 6.2831855F);
@@ -137,7 +137,7 @@ public class HeldItemRendererMixin {
                 this.applySwingOffset(matrices, arm, swingProgress);
                 if (bl4 && swingProgress < 0.001F) {
                     matrices.translate((double) ((float) i * -0.641864F), 0.0D, 0.0D);
-                    matrices.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion((float) i * 10.0F));
+                    matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees((float) i * 10.0F));
                 }
             }
 

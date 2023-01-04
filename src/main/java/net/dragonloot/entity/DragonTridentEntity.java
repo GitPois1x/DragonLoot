@@ -2,7 +2,6 @@ package net.dragonloot.entity;
 
 import net.dragonloot.init.EntityInit;
 import net.dragonloot.init.ItemInit;
-import net.dragonloot.network.EntitySpawnPacket;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -19,7 +18,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.network.Packet;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
@@ -219,11 +217,6 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
     @Environment(EnvType.CLIENT)
     public boolean shouldRender(double cameraX, double cameraY, double cameraZ) {
         return true;
-    }
-
-    @Override
-    public Packet<?> createSpawnPacket() {
-        return EntitySpawnPacket.createPacket(this);
     }
 
     static {

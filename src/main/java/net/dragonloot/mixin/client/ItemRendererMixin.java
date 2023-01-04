@@ -46,7 +46,7 @@ public abstract class ItemRendererMixin {
             matrices.push();
             boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND || renderMode == ModelTransformation.Mode.FIXED;
             if (stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && bl) {
-                model = ((ItemRendererAccess) this).getModelsInvoker().getModelManager().getModel(new ModelIdentifier("dragonloot" + ":dragon_trident#inventory"));
+                model = ((ItemRendererAccess) this).getModelsInvoker().getModelManager().getModel(new ModelIdentifier("dragonloot", "dragon_trident", "inventory"));
             }
 
             model.getTransformation().getTransformation(renderMode).apply(leftHanded, matrices);
@@ -71,7 +71,7 @@ public abstract class ItemRendererMixin {
         Item item = stack.getItem();
         BakedModel bakedModel2;
         if (item == ItemInit.DRAGON_TRIDENT_ITEM) {
-            bakedModel2 = this.models.getModelManager().getModel(new ModelIdentifier("minecraft:trident_in_hand#inventory"));
+            bakedModel2 = this.models.getModelManager().getModel(ItemRenderer.TRIDENT_IN_HAND);
             ClientWorld clientWorld = world instanceof ClientWorld ? (ClientWorld) world : null;
             BakedModel bakedModel3 = bakedModel2.getOverrides().apply(bakedModel2, stack, clientWorld, entity, seed);
             info.setReturnValue(bakedModel3 == null ? this.models.getModelManager().getMissingModel() : bakedModel3);
