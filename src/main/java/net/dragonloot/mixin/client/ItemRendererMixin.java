@@ -1,5 +1,6 @@
 package net.dragonloot.mixin.client;
 
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -40,11 +41,11 @@ public abstract class ItemRendererMixin {
         this.models = new ItemModels(baker);
     }
 
-    @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformation$Mode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "HEAD"), cancellable = true)
-    private void renderItemMixin(ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo info) {
+    @Inject(method = "renderItem(Lnet/minecraft/item/ItemStack;Lnet/minecraft/client/render/model/json/ModelTransformationMode;ZLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;IILnet/minecraft/client/render/model/BakedModel;)V", at = @At(value = "HEAD"), cancellable = true)
+    public void renderItem(ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, BakedModel model, CallbackInfo ci) {
         if (!stack.isEmpty() && stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM) {
             matrices.push();
-            boolean bl = renderMode == ModelTransformation.Mode.GUI || renderMode == ModelTransformation.Mode.GROUND || renderMode == ModelTransformation.Mode.FIXED;
+            boolean bl = renderMode == ModelTransformationMode.GUI || renderMode == ModelTransformationMode.GROUND || renderMode == ModelTransformationMode.FIXED;
             if (stack.getItem() == ItemInit.DRAGON_TRIDENT_ITEM && bl) {
                 model = ((ItemRendererAccess) this).getModelsInvoker().getModelManager().getModel(new ModelIdentifier("dragonloot", "dragon_trident", "inventory"));
             }
@@ -62,7 +63,7 @@ public abstract class ItemRendererMixin {
             }
 
             matrices.pop();
-            info.cancel();
+            ci.cancel();
         }
     }
 

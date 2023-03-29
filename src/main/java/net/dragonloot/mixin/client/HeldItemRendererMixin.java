@@ -2,6 +2,7 @@ package net.dragonloot.mixin.client;
 
 import com.google.common.annotations.VisibleForTesting;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -141,14 +142,14 @@ public class HeldItemRendererMixin {
                 }
             }
 
-            this.renderItem(player, item, bl3 ? ModelTransformation.Mode.FIRST_PERSON_RIGHT_HAND : ModelTransformation.Mode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
+            this.renderItem(player, item, bl3 ? ModelTransformationMode.FIRST_PERSON_RIGHT_HAND : ModelTransformationMode.FIRST_PERSON_LEFT_HAND, !bl3, matrices, vertexConsumers, light);
             matrices.pop();
             info.cancel();
         }
     }
 
     @Shadow
-    public void renderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+    public void renderItem(LivingEntity entity, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
     }
 
     @Shadow
