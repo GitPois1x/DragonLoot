@@ -21,13 +21,13 @@ public class DragonArmor extends ArmorItem {
     private final float toughness;
     protected final float knockbackResistance;
     protected final EquipmentSlot slot;
-    protected final ArmorMaterial type;
+    protected final ArmorMaterial material;
 
-    public DragonArmor(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
-        super(material, slot, settings);
-        this.type = material;
-        this.slot = slot;
-        this.protection = material.getProtectionAmount(slot);
+    public DragonArmor(ArmorMaterial material, ArmorItem.Type type, Settings settings) {
+        super(material, type, settings);
+        this.material = material;
+        this.slot = type.getEquipmentSlot();
+        this.protection = material.getProtection(type);
         this.toughness = material.getToughness();
         this.knockbackResistance = material.getKnockbackResistance();
         DispenserBlock.registerBehavior(this, DISPENSER_BEHAVIOR);

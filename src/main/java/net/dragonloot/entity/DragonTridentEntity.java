@@ -132,7 +132,8 @@ public class DragonTridentEntity extends PersistentProjectileEntity {
         }
 
         Entity entity2 = this.getOwner();
-        DamageSource damageSource = DamageSource.trident(this, (Entity) (entity2 == null ? this : entity2));
+        World world = entity.getWorld();
+        DamageSource damageSource = world.getDamageSources().trident(this, (Entity) (entity2 == null ? this : entity2));
         this.dealtDamage = true;
         SoundEvent soundEvent = SoundEvents.ITEM_TRIDENT_HIT;
         if (entity.damage(damageSource, f)) {

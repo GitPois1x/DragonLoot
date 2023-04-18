@@ -31,11 +31,11 @@
     "dragonloot.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.6",
+    "fabricloader": ">=0.14.17",
     "fabric": "*",
-    "minecraft": "1.19.x",
+    "minecraft": "1.19.4",
     "java": ">=17",
-    "cloth-config2": ">=7.0.69"
+    "cloth-config2": ">=10.0.96"
   },
   "suggests": {
     "another-mod": "*"

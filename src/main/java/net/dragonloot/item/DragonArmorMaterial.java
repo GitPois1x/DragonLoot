@@ -3,6 +3,7 @@ package net.dragonloot.item;
 import net.dragonloot.init.ConfigInit;
 import net.dragonloot.init.ItemInit;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
@@ -26,13 +27,13 @@ public class DragonArmorMaterial implements ArmorMaterial {
     private static final int[] PROTECTION_AMOUNTS = new int[] { ConfigInit.CONFIG.dragon_armor_protection_boots, ConfigInit.CONFIG.dragon_armor_protection_leggings, ConfigInit.CONFIG.dragon_armor_protection_chest, ConfigInit.CONFIG.dragon_armor_protection_helmet };
 
     @Override
-    public int getDurability(EquipmentSlot equipmentSlot) {
-        return BASE_DURABILITY[equipmentSlot.getEntitySlotId()] * ConfigInit.CONFIG.dragon_armor_durability_multiplier;
+    public int getDurability(ArmorItem.Type type) {
+        return BASE_DURABILITY[type.getEquipmentSlot().getEntitySlotId()] * ConfigInit.CONFIG.dragon_armor_durability_multiplier;
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot equipmentSlot) {
-        return PROTECTION_AMOUNTS[equipmentSlot.getEntitySlotId()];
+    public int getProtection(ArmorItem.Type type) {
+        return PROTECTION_AMOUNTS[type.getEquipmentSlot().getEntitySlotId()];
     }
 
     @Override

@@ -7,11 +7,7 @@ import net.dragonloot.item.*;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.HorseArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
@@ -20,7 +16,7 @@ import net.minecraft.util.Identifier;
 public class ItemInit {
 
     // ItemGroup
-    public static ItemGroup DRAGON_ITEM_GROUP = FabricItemGroup.builder(DragonLootMain.ID("dragonloot")).displayName(Text.literal("DragonLoot")).icon(() -> new ItemStack(ItemInit.DRAGON_SCALE_ITEM)).entries((enabledFeatures, entries, operatorEnabled) -> {
+    public static ItemGroup DRAGON_ITEM_GROUP = FabricItemGroup.builder(DragonLootMain.ID("dragonloot")).displayName(Text.literal("DragonLoot")).icon(() -> new ItemStack(ItemInit.DRAGON_SCALE_ITEM)).entries((enabledFeatures, entries) -> {
         entries.add(BlockInit.DRAGON_ANVIL_BLOCK);
     }).build();
 
@@ -30,11 +26,11 @@ public class ItemInit {
     // Armor
     public static final ArmorMaterial DRAGON_ARMOR_MATERIAL = DragonArmorMaterial.getInstance();
 
-    public static final Item DRAGON_HELMET = register("dragon_helmet", new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().fireproof()));
-    public static final Item DRAGON_CHESTPLATE = register("dragon_chestplate", new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().fireproof()));
-    public static final Item DRAGON_LEGGINGS = register("dragon_leggings", new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().fireproof()));
-    public static final Item DRAGON_BOOTS = register("dragon_boots", new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().fireproof()));
-    public static final Item UPGRADED_DRAGON_CHESTPLATE = register("upgraded_dragon_chestplate", new DragonArmor(DRAGON_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().fireproof()));
+    public static final Item DRAGON_HELMET = register("dragon_helmet", new DragonArmor(DRAGON_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings().fireproof()));
+    public static final Item DRAGON_CHESTPLATE = register("dragon_chestplate", new DragonArmor(DRAGON_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof()));
+    public static final Item DRAGON_LEGGINGS = register("dragon_leggings", new DragonArmor(DRAGON_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings().fireproof()));
+    public static final Item DRAGON_BOOTS = register("dragon_boots", new DragonArmor(DRAGON_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings().fireproof()));
+    public static final Item UPGRADED_DRAGON_CHESTPLATE = register("upgraded_dragon_chestplate", new DragonArmor(DRAGON_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings().fireproof()));
 
     // Tools
     public static final Item DRAGON_PICKAXE_ITEM = register("dragon_pickaxe", new DragonPickaxeItem(DragonToolMaterial.getInstance(), 1, -2.8f, new Item.Settings().fireproof()));
