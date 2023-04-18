@@ -2,7 +2,6 @@ package net.dragonloot.item;
 
 import net.dragonloot.init.ConfigInit;
 import net.dragonloot.init.ItemInit;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
