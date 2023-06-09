@@ -39,7 +39,7 @@ public class PlayerInventoryMixin {
             this.armor.set(2, new ItemStack(Items.ELYTRA));
             this.armor.get(2).setDamage(Items.ELYTRA.getMaxDamage());
             if (!this.player.isSilent()) {
-                this.player.world.playSound(this.player.getX(), this.player.getY(), this.player.getZ(), SoundEvents.ENTITY_ITEM_BREAK, this.player.getSoundCategory(), 0.8F, 0.8F + this.player.world.random.nextFloat() * 0.4F, false);
+                this.player.getWorld().playSound(this.player.getX(), this.player.getY(), this.player.getZ(), SoundEvents.ENTITY_ITEM_BREAK, this.player.getSoundCategory(), 0.8F, 0.8F + this.player.getWorld().getRandom().nextFloat() * 0.4F, false);
             }
         }
     }

@@ -9,13 +9,15 @@ public class RecipeMaterial {
     public String baseType;
     public String additionType;
     public Identifier output;
+    public Identifier template;
 
-    public RecipeMaterial(Identifier baseItem, Identifier additionItem, String baseType, String additionType, Identifier output) {
+    public RecipeMaterial(Identifier baseItem, Identifier additionItem, String baseType, String additionType, Identifier output, Identifier template) {
         this.baseItem = baseItem;
         this.additionItem = additionItem;
         this.baseType = baseType;
         this.additionType = additionType;
         this.output = output;
+        this.template = template;
     }
 
 }

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'fabric-loom' version '1.2-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -33,12 +33,6 @@ dependencies {
 
 }
 
-configurations.all {
-   resolutionStrategy {
-     force("net.fabricmc:fabric-loader:$loader_version")
-   }
-}
-
 base {
 	archivesName = project.archives_base_name
 }
@@ -46,8 +40,8 @@ base {
 processResources {
 	inputs.property "version", project.version
 
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+    filesMatching("fabric.mod.json") {
+		expand "version": project.version, "fabric_version": project.fabric_version, "loader_version": project.loader_version, "minecraft_version": project.minecraft_version, "cloth_config_version": project.cloth_config_version
 	}
 }
 

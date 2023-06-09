@@ -25,7 +25,7 @@ public abstract class LivingEntityMixin extends Entity {
     @Inject(method = "tickFallFlying", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;setFlag(IZ)V", ordinal = 0), cancellable = true)
     private void tickFallFlyingMixin(CallbackInfo info) {
         boolean bl = this.getFlag(7);
-        if (bl && !this.onGround && !this.hasVehicle() && ((LivingEntity) (Object) this).getEquippedStack(EquipmentSlot.CHEST).getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
+        if (bl && !this.isOnGround() && !this.hasVehicle() && ((LivingEntity) (Object) this).getEquippedStack(EquipmentSlot.CHEST).getItem() == ItemInit.UPGRADED_DRAGON_CHESTPLATE) {
             this.setFlag(7, true);
             info.cancel();
         }

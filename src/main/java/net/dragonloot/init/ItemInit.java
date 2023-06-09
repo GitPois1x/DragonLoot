@@ -9,15 +9,14 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ItemInit {
 
-    // ItemGroup
-    public static ItemGroup DRAGON_ITEM_GROUP = FabricItemGroup.builder(DragonLootMain.ID("dragonloot")).displayName(Text.literal("DragonLoot")).icon(() -> new ItemStack(ItemInit.DRAGON_SCALE_ITEM)).entries((enabledFeatures, entries) -> {
-        entries.add(BlockInit.DRAGON_ANVIL_BLOCK);
-    }).build();
+    public static final RegistryKey<ItemGroup> DRAGON_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, DragonLootMain.ID("dragonloot"));
 
     // Items
     public static final Item DRAGON_SCALE_ITEM = register("dragon_scale", new DragonScaleItem(new Item.Settings().fireproof()));
@@ -53,6 +52,8 @@ public class ItemInit {
     }
 
     public static void init() {
+        Registry.register(Registries.ITEM_GROUP, DRAGON_ITEM_GROUP, FabricItemGroup.builder().entries((context, entries) -> entries.add(BlockInit.DRAGON_ANVIL_BLOCK)).icon(() -> new ItemStack(ItemInit.DRAGON_SCALE_ITEM)).displayName(Text.translatable("itemGroup.dragonloot.dragonloot")).build());
+
         CompatRecipes.loadRecipes();
         RecipeGenerator.addRecipes();
     }

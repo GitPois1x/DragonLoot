@@ -14,8 +14,8 @@ public class SyncPacket {
             int entityId = buffer.readInt();
             String blockString = buffer.readString();
             client.execute(() -> {
-                if (client.player.world.getEntityById(entityId) != null) {
-                    PlayerEntity player = (PlayerEntity) client.player.world.getEntityById(entityId);
+                if (client.player.getWorld().getEntityById(entityId) != null) {
+                    PlayerEntity player = (PlayerEntity) client.player.getWorld().getEntityById(entityId);
                     if (player.currentScreenHandler instanceof AnvilScreenHandler) {
                         ((DragonAnvilInterface) player.currentScreenHandler).setDragonAnvil(blockString);
                     }

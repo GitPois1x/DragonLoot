@@ -30,9 +30,9 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
 
     @Inject(method = "updatePostDeath", at = @At("HEAD"))
     protected void updatePostDeathMixin(CallbackInfo info) {
-        if (!this.world.isClient && this.ticksSinceDeath == 150) {
+        if (!this.getWorld().isClient() && this.ticksSinceDeath == 150) {
             Box box = new Box(this.getBlockPos());
-            List<PlayerEntity> list = world.getEntitiesByClass(PlayerEntity.class, box.expand(128D), EntityPredicates.EXCEPT_SPECTATOR);
+            List<PlayerEntity> list = this.getWorld().getEntitiesByClass(PlayerEntity.class, box.expand(128D), EntityPredicates.EXCEPT_SPECTATOR);
             int dragonscalebonus = 0;
             for (int i = 0; i < list.size(); ++i) {
                 PlayerEntity entity = (PlayerEntity) list.get(i);
@@ -46,7 +46,7 @@ public abstract class EnderDragonEntityMixin extends MobEntity {
                 this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
             }
             for (int u = 0; u < dragonscalebonus; u++) {
-                if (this.world.random.nextFloat() <= ConfigInit.CONFIG.additional_scale_drop_chance) {
+                if (this.getWorld().getRandom().nextFloat() <= ConfigInit.CONFIG.additional_scale_drop_chance) {
                     this.dropStack(new ItemStack(ItemInit.DRAGON_SCALE_ITEM));
                 }
 
