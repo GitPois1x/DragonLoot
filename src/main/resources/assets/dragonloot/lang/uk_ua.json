@@ -1,0 +1,43 @@
+{
+  "block.dragonloot.dragon_anvil": "Ковадло дракона",
+  "item.dragonloot.dragon_scale": "Луска дракона",
+  
+  "item.dragonloot.dragon_helmet": "Шолом дракона",
+  "item.dragonloot.dragon_chestplate": "Нагрудник дракона",
+  "item.dragonloot.dragon_leggings": "Наголінники дракона",
+  "item.dragonloot.dragon_boots": "Чоботи дракона",
+  "item.dragonloot.upgraded_dragon_chestplate": "Крилатий нагрудник дракона",
+
+  "item.dragonloot.dragon_pickaxe": "Кайло дракона",
+  "item.dragonloot.dragon_axe": "Сокира дракона",
+  "item.dragonloot.dragon_shovel": "Лопата дракона",
+  "item.dragonloot.dragon_hoe": "Мотика дракона",
+  "item.dragonloot.dragon_sword": "Меч дракона",
+  "item.dragonloot.dragon_bow": "Лук дракона",
+  "item.dragonloot.dragon_crossbow": "Арбалет дракона",
+
+  "item.dragonloot.dragon_horse_armor": "Кінська броня дракона",
+  "item.dragonloot.dragon_trident": "Тризубець дракона",
+  "entity.dragonloot.dragon_trident": "Тризубець дракона",
+
+  "itemGroup.dragonloot.dragonloot": "Dragon Loot",
+
+  "text.autoconfig.dragonloot.title": "Налаштування Dragon Loot",
+  "text.autoconfig.dragonloot.option.scale_minimum_drop_amount": "Мінімальна кількість лусок з дракона",
+  "text.autoconfig.dragonloot.option.additional_scales_per_player": "Додаткові луски за гравця",
+  "text.autoconfig.dragonloot.option.additional_scale_drop_chance": "Шаес додаткових лусок",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_helmet": "Кількість очок броні шолома",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_chest": "Кількість очок броні нагрудника",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_leggings": "Кількість очок броні наголінників",
+  "text.autoconfig.dragonloot.option.dragon_armor_protection_boots": "Кількість очок броні чобіт",
+  "text.autoconfig.dragonloot.option.dragon_armor_durability_multiplier": "Множник міцності обладунків",
+  "text.autoconfig.dragonloot.option.dragon_item_durability_multiplier": "Множник міцності інструментів",
+  "text.autoconfig.dragonloot.option.dragon_item_base_damage": "Базова шкода інструментів",
+  "text.autoconfig.dragonloot.option.dragon_anvil_no_cap": "Ковадло дракона без ліміту",
+  "text.autoconfig.dragonloot.option.dragon_armor_toughness": "Твердість броні дракона",
+  "text.autoconfig.dragonloot.option.dragon_armor_knockback_resistance": "Стійкість до відкидання броні дракона",
+  "text.autoconfig.dragonloot.option.dragon_armor_enchantability": "Зачарування броні дракона",
+
+  "dragonloot.advancements.dragon_armor.title": "З лусок чудовиська",
+  "dragonloot.advancements.dragon_armor.description": "Створіть повний сет обладунків дракона"
+}
