@@ -6,7 +6,6 @@
   "mixins": [
     "AnvilBlockMixin",
     "AnvilScreenHandlerMixin",
-    "BowItemMixin",
     "CrossbowItemMixin",
     "EnderDragonEntityMixin",
     "ItemEntityMixin",

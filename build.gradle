@@ -15,6 +15,12 @@ repositories {
 	maven { url 'https://jitpack.io' }
 	maven { url "https://www.cursemaven.com" }
 	maven { url "https://maven.terraformersmc.com/" }
+	maven {
+		url = "https://api.modrinth.com/maven"
+		content {
+			includeGroup "maven.modrinth"
+		}
+	}
 }
 
 dependencies {
@@ -30,6 +36,8 @@ dependencies {
 	modCompileOnly modRuntimeOnly("com.terraformersmc:modmenu:${project.mod_menu_version}"),{
 		exclude(group: "net.fabricmc.fabric-api")
 	}
+	// Projectile Damage Attribute
+	modImplementation("maven.modrinth:projectile-damage-attribute:${project.projectile_damage_version}-fabric")
 
 }
 
@@ -41,7 +49,7 @@ processResources {
 	inputs.property "version", project.version
 
     filesMatching("fabric.mod.json") {
-		expand "version": project.version, "fabric_version": project.fabric_version, "loader_version": project.loader_version, "minecraft_version": project.minecraft_version, "cloth_config_version": project.cloth_config_version
+		expand "version": project.version, "fabric_version": project.fabric_version, "loader_version": project.loader_version, "minecraft_version": project.minecraft_version, "cloth_config_version": project.cloth_config_version, "projectile_damage_version": project.projectile_damage_version
 	}
 }
 
