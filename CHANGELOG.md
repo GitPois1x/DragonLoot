@@ -1,6 +1,6 @@
 ### Added:
 - 
 ### Fixed:
-- Fixed trident crash
+- Fixed dragon trident trigger channeling by LShiftLess
 ### Changed:
 - 
