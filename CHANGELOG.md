@@ -1,6 +1,6 @@
 ### Added:
 - 
 ### Fixed:
-- Fixed dragon trident trigger channeling by LShiftLess
+- Compat with other mods using dragon tool material
 ### Changed:
 - 
